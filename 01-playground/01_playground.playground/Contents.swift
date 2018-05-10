@@ -1,14 +1,25 @@
 import UIKit
 
-// use optional in the homework
-
 class Record {
     
     let date: Date
     
-    var name: String?
-    var text: String?
-    var tags: [String] = [String]()
+    var name: String? {
+        didSet{
+            print ("[LOG MESSAGE] New name \"\(self.name ?? "nil")\" is set. Record \(String(describing: self)). Old value \"\(oldValue ?? "nil")\"")
+        }
+    }
+    var text: String?{
+        didSet{
+            print ("[LOG MESSAGE] New name \"\(self.text ?? "nil")\" is set. Record \(String(describing: self)). Old value \"\(oldValue ?? "nil")\"")
+        }
+    }
+    var tags: [String] = [String](){
+        didSet{
+            print ("[LOG MESSAGE] New text \"\(tags)\" is set for Record \(String(describing: self)). Old value \"\(oldValue)\"")
+        }
+    }
+
     init(name: String? = nil, text: String? = nil, tags: String? = nil) {
         self.date = Date()
         
@@ -21,16 +32,31 @@ class Record {
         if let _: String = tags {
             self.tags = tags!.components(separatedBy: ",")
         }
+        
+        print ("[LOG MESSAGE] New record \(String(describing: self)) created. Name = \"\(self.name ?? "nil")\". Tags = \"\(self.tags)\". Text = \"\(self.text ?? "nil")\".")
     }
     
     convenience init? (date: Date, name: String? = nil, text: String? = nil, tags: String? = nil ) {
         if date != Date() {
+            print ("[LOG MESSAGE] Record not created due to wrong date")
             return nil
         } else {
             self.init(name: name, text: text, tags: tags)
         }
     }
-
+    
+    func addTag (tag: String){
+        self.tags.append(tag)
+    }
+    
+    func remTag (tag: String){
+        if self.tags.contains(tag) {
+            self.tags.remove(at: self.tags.index(of: tag)!)
+        } else {
+            print ("No such tag")
+        }
+    }
+    
     func description() -> String {
         //Add data to result string
         let dateFormatter = DateFormatter()
@@ -64,14 +90,25 @@ class Record {
 
 
 var record: Record = Record()
-
-record.name = "ololo"
-record.tags.append("1")
-record.tags.append("2")
-record.text = "finish it"
+record.name = "First record"
+record.tags.append("11")
+record.tags.append("12")
+record.addTag(tag: "13")
+record.remTag(tag: "12")
+record.remTag(tag: "12")
+record.text = "Text of the first record"
 print (record.description())
 
-var b: Record = Record(name:"lol", text:"123", tags:"1,2,3,4")
+var b: Record = Record(name:"Second record", text:"Text of the second record", tags:"21,22,23,24")
 print(b.description())
 
-var c: Record? = Record(date: Date(timeIntervalSince1970: 0), name: "222", text: "333", tags: "3,4,5")
+var c: Record? = Record(date: Date(timeIntervalSince1970: 0), name: "Third record", text: "Text of the third record", tags: "31,32,33,34")
+
+var d: Record = Record()
+print(d.description())
+
+var e: Record = Record(name:"Fifth record")
+print(e.description())
+
+var f: Record = Record(text:"Text of the sixth record")
+print(f.description())
