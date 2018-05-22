@@ -16,12 +16,14 @@ class ViewController: UIViewController {
     
     var records: [String] = [String]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let width = mainTable.frame.width / 2
         addButton.widthAnchor.constraint(equalToConstant: width).isActive = true
         removeButton.widthAnchor.constraint(equalToConstant: width).isActive = true
+        print ("main load")
         
     }
 
@@ -45,7 +47,16 @@ class ViewController: UIViewController {
 
     }
     
-
+    @IBAction func onRemButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "toAddWindow", sender: Any?.self)
+    }
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     if let nav = segue.destination as? UINavigationController, let classBVC = nav.topViewController as? AddScreenViewController {
+     classBVC.delegate = self
+    }
+    }*/
+    
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
