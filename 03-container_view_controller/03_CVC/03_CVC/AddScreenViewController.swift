@@ -8,11 +8,19 @@
 
 import UIKit
 
+protocol AddScreenViewControllerDelegate: class {
+    
+    func addRecord(record:Record)
+    
+}
+
 class AddScreenViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var tagsLabel: UITextField!
     @IBOutlet weak var textLabel: UITextField!
+    
+    weak var delegate: AddScreenViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +35,7 @@ class AddScreenViewController: UIViewController {
     
     @IBAction func onOkButton(_ sender: Any) {
         let record = Record(name: nameLabel.text, text: textLabel.text, tags: tagsLabel.text)
+        delegate?.addRecord(record: record)
         self.dismiss(animated: true, completion: nil)
         
     }

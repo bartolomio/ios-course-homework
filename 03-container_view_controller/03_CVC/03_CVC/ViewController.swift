@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AddScreenViewControllerDelegate {
 
     @IBOutlet weak var mainTable: UITableView!
     @IBOutlet weak var addButton: UIButton!
@@ -32,9 +32,20 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func addRecord(record: Record) {
+        records.append(record.description())
+        print ("Add record")
+        print (records)
+        mainTable.beginUpdates()
+        let indexPath = IndexPath(row: records.count - 1, section: 0)
+        mainTable.insertRows(at: [indexPath], with: .automatic)
+        
+        mainTable.endUpdates()
+    }
+    
     @IBAction func onAddButton(_ sender: Any) {
+        /*
         mainTable.setEditing(true, animated: true)
-        //records.append("wwdwwwwws")
         
         let record = Record(name: "name1", text: "text1", tags: "tag11,tag12")
         records.append(record.description())
@@ -42,8 +53,8 @@ class ViewController: UIViewController {
         let indexPath = IndexPath(row: records.count - 1, section: 0)
         mainTable.insertRows(at: [indexPath], with: .automatic)
         
-        mainTable.endUpdates()
-        
+        mainTable.endUpdates()*/
+        self.performSegue(withIdentifier: "toAddWindow", sender: Any?.self)
 
     }
     
@@ -51,11 +62,11 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "toAddWindow", sender: Any?.self)
     }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     if let nav = segue.destination as? UINavigationController, let classBVC = nav.topViewController as? AddScreenViewController {
-     classBVC.delegate = self
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let addScreenViewController = segue.destination as? AddScreenViewController {
+            addScreenViewController.delegate = self
+        }
     }
-    }*/
     
 }
 

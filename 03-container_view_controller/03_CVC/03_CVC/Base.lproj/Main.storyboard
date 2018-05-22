@@ -37,21 +37,21 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPo-G3-tuv">
-                                <rect key="frame" x="10" y="617" width="309" height="50"/>
+                                <rect key="frame" x="10" y="617" width="300" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="GSJ-ih-ayA"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Add"/>
                                 <connections>
                                     <action selector="onAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SWR-Bb-6So"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa3-s4-P0c">
-                                <rect key="frame" x="319" y="617" width="46" height="50"/>
+                                <rect key="frame" x="310" y="617" width="55" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="9Sk-KZ-lBB"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Remove"/>
                                 <connections>
                                     <action selector="onRemButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jRW-4E-2dq"/>
                                 </connections>
