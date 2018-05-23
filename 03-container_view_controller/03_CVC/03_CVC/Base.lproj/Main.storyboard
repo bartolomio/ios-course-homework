@@ -37,7 +37,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vPo-G3-tuv">
-                                <rect key="frame" x="10" y="617" width="300" height="50"/>
+                                <rect key="frame" x="10" y="617" width="325" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="GSJ-ih-ayA"/>
                                 </constraints>
@@ -46,14 +46,14 @@
                                     <action selector="onAddButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SWR-Bb-6So"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa3-s4-P0c">
-                                <rect key="frame" x="310" y="617" width="55" height="50"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qa3-s4-P0c">
+                                <rect key="frame" x="335" y="617" width="30" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="9Sk-KZ-lBB"/>
                                 </constraints>
-                                <state key="normal" title="Remove"/>
+                                <state key="normal" title="Edit"/>
                                 <connections>
-                                    <action selector="onRemButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jRW-4E-2dq"/>
+                                    <action selector="onEditButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TcB-Jx-hFo"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -75,8 +75,8 @@
                     </view>
                     <connections>
                         <outlet property="addButton" destination="vPo-G3-tuv" id="evO-zm-Ne9"/>
+                        <outlet property="editButton" destination="qa3-s4-P0c" id="v1m-dX-dgE"/>
                         <outlet property="mainTable" destination="Haf-E5-Ahe" id="s3N-e2-4CX"/>
-                        <outlet property="removeButton" destination="qa3-s4-P0c" id="umQ-Ph-Msw"/>
                         <segue destination="Dse-na-JTH" kind="presentation" identifier="toAddWindow" id="P3E-Gg-OjK"/>
                     </connections>
                 </viewController>

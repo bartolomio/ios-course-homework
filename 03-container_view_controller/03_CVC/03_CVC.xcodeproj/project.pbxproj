@@ -15,6 +15,7 @@
 		106ACCDC20B483BB00FF8140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106ACCDA20B483BB00FF8140 /* LaunchScreen.storyboard */; };
 		106ACCE420B4AE2100FF8140 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106ACCE320B4AE2100FF8140 /* Record.swift */; };
 		106ACCE620B4B6DD00FF8140 /* AddScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106ACCE520B4B6DD00FF8140 /* AddScreenViewController.swift */; };
+		108D71BD20B612CA008D717A /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 108D71BC20B612CA008D717A /* Action.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		106ACCDD20B483BB00FF8140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		106ACCE320B4AE2100FF8140 /* Record.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		106ACCE520B4B6DD00FF8140 /* AddScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenViewController.swift; sourceTree = "<group>"; };
+		108D71BC20B612CA008D717A /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				106ACCDD20B483BB00FF8140 /* Info.plist */,
 				106ACCD520B483B900FF8140 /* _3_CVC.xcdatamodeld */,
 				106ACCE320B4AE2100FF8140 /* Record.swift */,
+				108D71BC20B612CA008D717A /* Action.swift */,
 				106ACCE520B4B6DD00FF8140 /* AddScreenViewController.swift */,
 			);
 			path = 03_CVC;
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				106ACCD120B483B900FF8140 /* ViewController.swift in Sources */,
+				108D71BD20B612CA008D717A /* Action.swift in Sources */,
 				106ACCD720B483B900FF8140 /* _3_CVC.xcdatamodeld in Sources */,
 				106ACCE420B4AE2100FF8140 /* Record.swift in Sources */,
 				106ACCCF20B483B900FF8140 /* AppDelegate.swift in Sources */,

@@ -9,22 +9,22 @@
 import UIKit
 
 class ViewController: UIViewController, AddScreenViewControllerDelegate {
-
+    
     @IBOutlet weak var mainTable: UITableView!
     @IBOutlet weak var addButton: UIButton!
-    @IBOutlet weak var removeButton: UIButton!
+    @IBOutlet weak var editButton: UIButton!
     
-    var records: [String] = [String]()
     
+    var records: [Record] = [Record]()
+    
+    var action: Action = Action.no_Action
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let width = mainTable.frame.width / 2
         addButton.widthAnchor.constraint(equalToConstant: width).isActive = true
-        removeButton.widthAnchor.constraint(equalToConstant: width).isActive = true
-        print ("main load")
-        
+        editButton.widthAnchor.constraint(equalToConstant: width).isActive = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,38 +33,44 @@ class ViewController: UIViewController, AddScreenViewControllerDelegate {
     }
     
     func addRecord(record: Record) {
-        records.append(record.description())
-        print ("Add record")
-        print (records)
+        records.append(record)
         mainTable.beginUpdates()
         let indexPath = IndexPath(row: records.count - 1, section: 0)
         mainTable.insertRows(at: [indexPath], with: .automatic)
-        
         mainTable.endUpdates()
     }
     
+    func updateRecord(record: Record) {
+        if let selectedRow = mainTable.indexPathForSelectedRow?.row{
+            records[selectedRow] = record
+            //mainTable.reloadData()
+            mainTable.reloadRows(at: [mainTable.indexPathForSelectedRow!], with: .none)
+            editButton.isEnabled = false
+        }
+    }
+    
     @IBAction func onAddButton(_ sender: Any) {
-        /*
-        mainTable.setEditing(true, animated: true)
-        
-        let record = Record(name: "name1", text: "text1", tags: "tag11,tag12")
-        records.append(record.description())
-        mainTable.beginUpdates()
-        let indexPath = IndexPath(row: records.count - 1, section: 0)
-        mainTable.insertRows(at: [indexPath], with: .automatic)
-        
-        mainTable.endUpdates()*/
+        self.action = Action.add_Record
         self.performSegue(withIdentifier: "toAddWindow", sender: Any?.self)
 
     }
     
-    @IBAction func onRemButton(_ sender: Any) {
+    @IBAction func onEditButton(_ sender: Any) {
+        self.action = Action.edit_Record
         self.performSegue(withIdentifier: "toAddWindow", sender: Any?.self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let addScreenViewController = segue.destination as? AddScreenViewController {
             addScreenViewController.delegate = self
+            addScreenViewController.action = self.action
+            if self.action == Action.edit_Record {
+                if let selectedRow = mainTable.indexPathForSelectedRow?.row {
+                    addScreenViewController.name = records[selectedRow].name
+                    addScreenViewController.tags = records[selectedRow].tagsAsString()
+                    addScreenViewController.text = records[selectedRow].text
+                }
+            }
         }
     }
     
@@ -81,10 +87,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = mainTable.dequeueReusableCell(withIdentifier: "cell")!
         cell.textLabel?.numberOfLines = 4
-        cell.textLabel?.text = record
+        cell.textLabel?.text = record.description()
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        editButton.isEnabled = true
+    }
+    
     
     
 }

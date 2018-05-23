@@ -57,6 +57,19 @@ class Record {
         }
     }
     
+    func tagsAsString () -> String?{
+        var result: String = ""
+        for tag in self.tags {
+            result = result + tag + ","
+        }
+        if result.count > 0 {
+            result.removeLast()
+            return result
+        } else {
+            return nil
+        }
+    }
+    
     func description() -> String {
         //Add data to result string
         let dateFormatter = DateFormatter()
@@ -112,3 +125,4 @@ print(e.description())
 
 var f: Record = Record(text:"Text of the sixth record")
 print(f.description())
+print (f.tagsAsString() ?? "nil")
