@@ -42,6 +42,11 @@ class AddScreenViewController: UIViewController {
         textLabel.text = text
         deleteButton.isHidden = deleteButtonHiden
         deleteButton.isEnabled = deleteButtonEnabled
+        
+        self.nameLabel.delegate = self
+        self.tagsLabel.delegate = self
+        self.textLabel.delegate = self
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -82,4 +87,13 @@ class AddScreenViewController: UIViewController {
     }
     
 
+}
+
+extension AddScreenViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.nameLabel.resignFirstResponder()
+        self.tagsLabel.resignFirstResponder()
+        self.textLabel.resignFirstResponder()
+        return true
+    }
 }
