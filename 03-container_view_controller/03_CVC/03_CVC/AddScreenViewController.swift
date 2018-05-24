@@ -12,6 +12,7 @@ protocol AddScreenViewControllerDelegate: class {
     
     func addRecord(record:Record)
     func updateRecord(record:Record)
+    func deleteRecord()
     
 }
 
@@ -20,6 +21,7 @@ class AddScreenViewController: UIViewController {
     @IBOutlet weak var nameLabel: UITextField!
     @IBOutlet weak var tagsLabel: UITextField!
     @IBOutlet weak var textLabel: UITextField!
+    @IBOutlet weak var deleteButton: UIButton!
     
     weak var delegate: AddScreenViewControllerDelegate?
     
@@ -27,6 +29,8 @@ class AddScreenViewController: UIViewController {
     var tags: String? = nil
     var text: String? = nil
     var action: Action = Action.no_Action
+    var deleteButtonHiden: Bool = true
+    var deleteButtonEnabled: Bool = false
     
 
     override func viewDidLoad() {
@@ -36,6 +40,8 @@ class AddScreenViewController: UIViewController {
         nameLabel.text = name
         tagsLabel.text = tags
         textLabel.text = text
+        deleteButton.isHidden = deleteButtonHiden
+        deleteButton.isEnabled = deleteButtonEnabled
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,5 +70,16 @@ class AddScreenViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
         
     }
+    
+    @IBAction func onDeleteButton(_ sender: Any) {
+        
+        //delegate?.deleteRecord()
+        Action.delete_Record.performAction(delegate: delegate)
+        deleteButton.isHidden = true
+        deleteButton.isEnabled = false
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
 
 }

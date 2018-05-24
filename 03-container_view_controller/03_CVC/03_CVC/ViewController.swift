@@ -43,10 +43,17 @@ class ViewController: UIViewController, AddScreenViewControllerDelegate {
     func updateRecord(record: Record) {
         if let selectedRow = mainTable.indexPathForSelectedRow?.row{
             records[selectedRow] = record
-            //mainTable.reloadData()
             mainTable.reloadRows(at: [mainTable.indexPathForSelectedRow!], with: .none)
             editButton.isEnabled = false
         }
+    }
+    
+    func deleteRecord() {
+        if let selectedRow = mainTable.indexPathForSelectedRow?.row{
+            records.remove(at: selectedRow)
+        }
+        mainTable.reloadData()
+        editButton.isEnabled = false
     }
     
     @IBAction func onAddButton(_ sender: Any) {
@@ -69,6 +76,8 @@ class ViewController: UIViewController, AddScreenViewControllerDelegate {
                     addScreenViewController.name = records[selectedRow].name
                     addScreenViewController.tags = records[selectedRow].tagsAsString()
                     addScreenViewController.text = records[selectedRow].text
+                    addScreenViewController.deleteButtonHiden = false
+                    addScreenViewController.deleteButtonEnabled = true
                 }
             }
         }
