@@ -8,35 +8,86 @@
 
 import UIKit
 
-class ActionViewController: UIViewController {
+protocol ActionViewControllerDelegate: class {
+    
+    func addRecord(record:Record)
+    func updateRecord(record:Record)
+    func deleteRecord()
+    
+}
 
+class ActionViewController: UIViewController {
+    
+    weak var delegate: ActionViewControllerDelegate?
+    
+    var name: String? = nil
+    var tags: String? = nil
+    var text: String? = nil
+    var action: Action = Action.no_Action
+    var deleteButtonHiden: Bool = true
+    var deleteButtonEnabled: Bool = false
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    
+    @IBOutlet weak var tagsTextField: UITextField!
+    
+    @IBOutlet weak var textTextField: UITextField!
+    
+    @IBOutlet weak var okButton: UIButton!
+    
+    @IBOutlet weak var deleteButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        nameTextField.text = name
+        tagsTextField.text = tags
+        textTextField.text = text
+        deleteButton.isHidden = deleteButtonHiden
+        deleteButton.isEnabled = deleteButtonEnabled
+        
+        self.nameTextField.delegate = self
+        self.tagsTextField.delegate = self
+        self.textTextField.delegate = self
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func onOkButtonTapped(_ sender: Any) {
+        if nameTextField.text != ""{
+            name = nameTextField.text
+        } else {
+            name = nil
+        }
+        if textTextField.text != ""{
+            text = textTextField.text
+        } else {
+            text = nil
+        }
+        if tagsTextField.text != ""{
+            tags = tagsTextField.text
+        } else {
+            tags = nil
+        }
+        let record = Record(name: name, text: text, tags: tags)
+        action.performAction(delegate: delegate, record: record)
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func onDeleteButtonTapped(_ sender: Any) {
+        Action.delete_Record.performAction(delegate: delegate)
+        deleteButton.isHidden = true
+        deleteButton.isEnabled = false
         self.navigationController?.popViewController(animated: true)
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+}
+
+extension ActionViewController: UITextFieldDelegate{
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.nameTextField.resignFirstResponder()
+        self.tagsTextField.resignFirstResponder()
+        self.textTextField.resignFirstResponder()
+        return true
     }
-    */
-
 }

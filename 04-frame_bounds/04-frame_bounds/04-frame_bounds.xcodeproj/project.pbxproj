@@ -14,6 +14,7 @@
 		107AAF8220BB14C100D318BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107AAF8020BB14C100D318BE /* LaunchScreen.storyboard */; };
 		107AAF8C20BB233C00D318BE /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AAF8B20BB233C00D318BE /* ActionViewController.swift */; };
 		107AAF9420BB373200D318BE /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AAF9220BB373200D318BE /* Record.swift */; };
+		107AAF9620BB694700D318BE /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AAF9520BB694700D318BE /* Action.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		107AAF8320BB14C100D318BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		107AAF8B20BB233C00D318BE /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		107AAF9220BB373200D318BE /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		107AAF9520BB694700D318BE /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		107AAF7620BB14C000D318BE /* 04-frame_bounds */ = {
 			isa = PBXGroup;
 			children = (
+				107AAF9520BB694700D318BE /* Action.swift */,
 				107AAF7720BB14C000D318BE /* AppDelegate.swift */,
 				107AAF7920BB14C000D318BE /* ViewController.swift */,
 				107AAF7B20BB14C000D318BE /* Main.storyboard */,
@@ -144,6 +147,7 @@
 				107AAF7A20BB14C000D318BE /* ViewController.swift in Sources */,
 				107AAF9420BB373200D318BE /* Record.swift in Sources */,
 				107AAF7820BB14C000D318BE /* AppDelegate.swift in Sources */,
+				107AAF9620BB694700D318BE /* Action.swift in Sources */,
 				107AAF8C20BB233C00D318BE /* ActionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
