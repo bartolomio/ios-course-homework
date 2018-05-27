@@ -13,6 +13,7 @@
 		107AAF7F20BB14C100D318BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107AAF7E20BB14C100D318BE /* Assets.xcassets */; };
 		107AAF8220BB14C100D318BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107AAF8020BB14C100D318BE /* LaunchScreen.storyboard */; };
 		107AAF8C20BB233C00D318BE /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AAF8B20BB233C00D318BE /* ActionViewController.swift */; };
+		107AAF9420BB373200D318BE /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AAF9220BB373200D318BE /* Record.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		107AAF8120BB14C100D318BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		107AAF8320BB14C100D318BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		107AAF8B20BB233C00D318BE /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
+		107AAF9220BB373200D318BE /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				107AAF8020BB14C100D318BE /* LaunchScreen.storyboard */,
 				107AAF8320BB14C100D318BE /* Info.plist */,
 				107AAF8B20BB233C00D318BE /* ActionViewController.swift */,
+				107AAF9220BB373200D318BE /* Record.swift */,
 			);
 			path = "04-frame_bounds";
 			sourceTree = "<group>";
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				107AAF7A20BB14C000D318BE /* ViewController.swift in Sources */,
+				107AAF9420BB373200D318BE /* Record.swift in Sources */,
 				107AAF7820BB14C000D318BE /* AppDelegate.swift in Sources */,
 				107AAF8C20BB233C00D318BE /* ActionViewController.swift in Sources */,
 			);
