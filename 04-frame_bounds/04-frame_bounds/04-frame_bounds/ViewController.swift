@@ -24,8 +24,6 @@ class ViewController: UIViewController {
         self.tableView.dataSource = self
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
-        records.append(Record(name: "name1", text: "text1", tags: "tag1,tag2"))
-        
         self.view.addSubview(tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -33,7 +31,7 @@ class ViewController: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: self.editButton.trailingAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.editButton.topAnchor, constant: -40).isActive = true
-        
+
         /*
         let bottomConstraint = NSLayoutConstraint(item: tableView, attribute: .bottom, relatedBy: .equal, toItem: editButton, attribute: .top, multiplier: 1.0, constant: -40.0)
         
@@ -42,15 +40,8 @@ class ViewController: UIViewController {
         let topConstraint = NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 0)
         self.view.addConstraints([bottomConstraint,leadingConstraint,trailingAnchor,topConstraint])
         */
-        super.viewDidLoad() 
+        super.viewDidLoad()
         
-      
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func onAddButtonTapped(_ sender: Any) {
@@ -61,30 +52,6 @@ class ViewController: UIViewController {
     @IBAction func onEditButtonTapped(_ sender: Any) {
         self.action = Action.edit_Record
         self.performSegue(withIdentifier: "toActionView", sender: self)
-    }
-    
-    
-
-}
-
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return records.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let record = records[indexPath.row]
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-        cell.textLabel?.numberOfLines = 4
-        cell.textLabel?.text = record.description()
-        
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        editButton.isEnabled = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -101,6 +68,32 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             }
         }
+    }
+
+}
+
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return records.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let record = records[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        cell.translatesAutoresizingMaskIntoConstraints = false
+        cell.textLabel?.numberOfLines = 4
+        cell.textLabel?.text = record.description()
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        editButton.isEnabled = true
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return tableView.frame.height / 3
     }
     
 }
