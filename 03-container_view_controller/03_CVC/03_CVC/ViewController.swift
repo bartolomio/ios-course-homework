@@ -8,28 +8,24 @@
 
 import UIKit
 
-class ViewController: UIViewController, AddScreenViewControllerDelegate {
+class ViewController: UIViewController, AddScreenViewControllerDelegate {// <----- conform to this protocol via Extension please
     
     @IBOutlet weak var mainTable: UITableView!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var editButton: UIButton!
     
-    
     var records: [Record] = [Record]()
     
     var action: Action = Action.no_Action
     
+    //MARK: View Controller Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
         let width = mainTable.frame.width / 2
         addButton.widthAnchor.constraint(equalToConstant: width).isActive = true
         editButton.widthAnchor.constraint(equalToConstant: width).isActive = true
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func addRecord(record: Record) {
@@ -56,6 +52,8 @@ class ViewController: UIViewController, AddScreenViewControllerDelegate {
         editButton.isEnabled = false
     }
     
+    //MARK: Actions
+    
     @IBAction func onAddButton(_ sender: Any) {
         self.action = Action.add_Record
         self.performSegue(withIdentifier: "toAddWindow", sender: Any?.self)
@@ -66,6 +64,8 @@ class ViewController: UIViewController, AddScreenViewControllerDelegate {
         self.action = Action.edit_Record
         self.performSegue(withIdentifier: "toAddWindow", sender: Any?.self)
     }
+    
+    //MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let addScreenViewController = segue.destination as? AddScreenViewController {
@@ -85,6 +85,7 @@ class ViewController: UIViewController, AddScreenViewControllerDelegate {
     
 }
 
+// Good!
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return records.count
@@ -104,8 +105,5 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         editButton.isEnabled = true
     }
-    
-    
-    
 }
 

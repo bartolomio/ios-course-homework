@@ -43,6 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
+    
+    
+    //Make sence to delete all CoreData related code for now :)
+    //Also make sence to create groups for files here in XCode to distinguish who is who and what is the layer of file;
 
     // MARK: - Core Data stack
 

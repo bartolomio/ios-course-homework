@@ -16,13 +16,16 @@ enum Action{
 
     func performAction(delegate:AddScreenViewControllerDelegate?, record:Record? = nil){
         switch self {
-        case .add_Record:
-            delegate?.addRecord(record: record!)
-        case .edit_Record:
-            delegate?.updateRecord(record: record!)
-        case .delete_Record:
-            delegate?.deleteRecord()
-        default:break
+            case .add_Record:
+                delegate?.addRecord(record: record!)
+            
+            case .edit_Record:
+                delegate?.updateRecord(record: record!)
+            
+            case .delete_Record:
+                delegate?.deleteRecord()
+            
+            default:break // you can implement .no_Action case instead of "default", but this is optional
         }
     }
 }
