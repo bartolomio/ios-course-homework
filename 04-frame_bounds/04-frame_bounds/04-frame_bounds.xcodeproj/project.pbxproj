@@ -60,17 +60,49 @@
 		107AAF7620BB14C000D318BE /* 04-frame_bounds */ = {
 			isa = PBXGroup;
 			children = (
-				107AAF9520BB694700D318BE /* Action.swift */,
+				10DE267A20C0AC6A00A2515E /* ViewControllers */,
+				10DE267920C0AC6300A2515E /* Enums */,
+				10DE267820C0AC5800A2515E /* Protocols */,
+				10DE267720C0AC4C00A2515E /* Classes */,
 				107AAF7720BB14C000D318BE /* AppDelegate.swift */,
-				107AAF7920BB14C000D318BE /* ViewController.swift */,
 				107AAF7B20BB14C000D318BE /* Main.storyboard */,
 				107AAF7E20BB14C100D318BE /* Assets.xcassets */,
 				107AAF8020BB14C100D318BE /* LaunchScreen.storyboard */,
 				107AAF8320BB14C100D318BE /* Info.plist */,
-				107AAF8B20BB233C00D318BE /* ActionViewController.swift */,
-				107AAF9220BB373200D318BE /* Record.swift */,
 			);
 			path = "04-frame_bounds";
+			sourceTree = "<group>";
+		};
+		10DE267720C0AC4C00A2515E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				107AAF9220BB373200D318BE /* Record.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		10DE267820C0AC5800A2515E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		10DE267920C0AC6300A2515E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				107AAF9520BB694700D318BE /* Action.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		10DE267A20C0AC6A00A2515E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				107AAF7920BB14C000D318BE /* ViewController.swift */,
+				107AAF8B20BB233C00D318BE /* ActionViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
