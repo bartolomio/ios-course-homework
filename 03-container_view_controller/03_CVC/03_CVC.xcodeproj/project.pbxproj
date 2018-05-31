@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		103CE45720C09C190061060E /* AddScreenViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103CE45620C09C190061060E /* AddScreenViewControllerDelegate.swift */; };
 		106ACCCF20B483B900FF8140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106ACCCE20B483B900FF8140 /* AppDelegate.swift */; };
 		106ACCD120B483B900FF8140 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106ACCD020B483B900FF8140 /* ViewController.swift */; };
 		106ACCD420B483B900FF8140 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106ACCD220B483B900FF8140 /* Main.storyboard */; };
-		106ACCD720B483B900FF8140 /* _3_CVC.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 106ACCD520B483B900FF8140 /* _3_CVC.xcdatamodeld */; };
 		106ACCD920B483BB00FF8140 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 106ACCD820B483BB00FF8140 /* Assets.xcassets */; };
 		106ACCDC20B483BB00FF8140 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 106ACCDA20B483BB00FF8140 /* LaunchScreen.storyboard */; };
 		106ACCE420B4AE2100FF8140 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106ACCE320B4AE2100FF8140 /* Record.swift */; };
@@ -19,11 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		103CE45620C09C190061060E /* AddScreenViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddScreenViewControllerDelegate.swift; sourceTree = "<group>"; };
 		106ACCCB20B483B900FF8140 /* 03_CVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 03_CVC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		106ACCCE20B483B900FF8140 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		106ACCD020B483B900FF8140 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		106ACCD320B483B900FF8140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		106ACCD620B483B900FF8140 /* _3_CVC.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = _3_CVC.xcdatamodel; sourceTree = "<group>"; };
 		106ACCD820B483BB00FF8140 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		106ACCDB20B483BB00FF8140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		106ACCDD20B483BB00FF8140 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -43,6 +43,39 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		103CE45A20C09D010061060E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				106ACCE320B4AE2100FF8140 /* Record.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		103CE45B20C09D390061060E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				108D71BC20B612CA008D717A /* Action.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		103CE45C20C09D680061060E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				103CE45620C09C190061060E /* AddScreenViewControllerDelegate.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		103CE45F20C09DD20061060E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				106ACCD020B483B900FF8140 /* ViewController.swift */,
+				106ACCE520B4B6DD00FF8140 /* AddScreenViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		106ACCC220B483B900FF8140 = {
 			isa = PBXGroup;
 			children = (
@@ -62,16 +95,15 @@
 		106ACCCD20B483B900FF8140 /* 03_CVC */ = {
 			isa = PBXGroup;
 			children = (
+				103CE45F20C09DD20061060E /* ViewControllers */,
+				103CE45C20C09D680061060E /* Protocols */,
+				103CE45B20C09D390061060E /* Enums */,
+				103CE45A20C09D010061060E /* Classes */,
 				106ACCCE20B483B900FF8140 /* AppDelegate.swift */,
-				106ACCD020B483B900FF8140 /* ViewController.swift */,
 				106ACCD220B483B900FF8140 /* Main.storyboard */,
 				106ACCD820B483BB00FF8140 /* Assets.xcassets */,
 				106ACCDA20B483BB00FF8140 /* LaunchScreen.storyboard */,
 				106ACCDD20B483BB00FF8140 /* Info.plist */,
-				106ACCD520B483B900FF8140 /* _3_CVC.xcdatamodeld */,
-				106ACCE320B4AE2100FF8140 /* Record.swift */,
-				108D71BC20B612CA008D717A /* Action.swift */,
-				106ACCE520B4B6DD00FF8140 /* AddScreenViewController.swift */,
 			);
 			path = 03_CVC;
 			sourceTree = "<group>";
@@ -149,8 +181,8 @@
 			files = (
 				106ACCD120B483B900FF8140 /* ViewController.swift in Sources */,
 				108D71BD20B612CA008D717A /* Action.swift in Sources */,
-				106ACCD720B483B900FF8140 /* _3_CVC.xcdatamodeld in Sources */,
 				106ACCE420B4AE2100FF8140 /* Record.swift in Sources */,
+				103CE45720C09C190061060E /* AddScreenViewControllerDelegate.swift in Sources */,
 				106ACCCF20B483B900FF8140 /* AppDelegate.swift in Sources */,
 				106ACCE620B4B6DD00FF8140 /* AddScreenViewController.swift in Sources */,
 			);
@@ -350,19 +382,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		106ACCD520B483B900FF8140 /* _3_CVC.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				106ACCD620B483B900FF8140 /* _3_CVC.xcdatamodel */,
-			);
-			currentVersion = 106ACCD620B483B900FF8140 /* _3_CVC.xcdatamodel */;
-			path = _3_CVC.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 106ACCC320B483B900FF8140 /* Project object */;
 }

@@ -8,14 +8,6 @@
 
 import UIKit
 
-protocol AddScreenViewControllerDelegate: class {
-    
-    func addRecord(record:Record)
-    func updateRecord(record:Record)
-    func deleteRecord()
-    
-}
-
 class AddScreenViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UITextField!
@@ -32,6 +24,7 @@ class AddScreenViewController: UIViewController {
     var deleteButtonHiden: Bool = true
     var deleteButtonEnabled: Bool = false
     
+    //MARK: View Controller Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,16 +36,12 @@ class AddScreenViewController: UIViewController {
         deleteButton.isHidden = deleteButtonHiden
         deleteButton.isEnabled = deleteButtonEnabled
         
-        self.nameLabel.delegate = self
-        self.tagsLabel.delegate = self
-        self.textLabel.delegate = self
-        
+        nameLabel.delegate = self
+        tagsLabel.delegate = self
+        textLabel.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+    //MARK: - Actions
     
     @IBAction func onOkButton(_ sender: Any) {
         if nameLabel.text != ""{
@@ -77,23 +66,19 @@ class AddScreenViewController: UIViewController {
     }
     
     @IBAction func onDeleteButton(_ sender: Any) {
-        
-        //delegate?.deleteRecord()
         Action.delete_Record.performAction(delegate: delegate)
         deleteButton.isHidden = true
         deleteButton.isEnabled = false
         self.dismiss(animated: true, completion: nil)
-        
     }
-    
-
 }
 
-extension AddScreenViewController: UITextFieldDelegate{
+extension AddScreenViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.nameLabel.resignFirstResponder()
-        self.tagsLabel.resignFirstResponder()
-        self.textLabel.resignFirstResponder()
+        nameLabel.resignFirstResponder()
+        tagsLabel.resignFirstResponder()
+        textLabel.resignFirstResponder()
+        
         return true
     }
 }
