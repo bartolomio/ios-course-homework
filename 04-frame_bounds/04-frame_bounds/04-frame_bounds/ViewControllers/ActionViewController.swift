@@ -8,14 +8,6 @@
 
 import UIKit
 
-protocol ActionViewControllerDelegate: class {
-    
-    func addRecord(record:Record)
-    func updateRecord(record:Record)
-    func deleteRecord()
-    
-}
-
 class ActionViewController: UIViewController {
     
     weak var delegate: ActionViewControllerDelegate?

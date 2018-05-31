@@ -15,6 +15,7 @@
 		107AAF8C20BB233C00D318BE /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AAF8B20BB233C00D318BE /* ActionViewController.swift */; };
 		107AAF9420BB373200D318BE /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AAF9220BB373200D318BE /* Record.swift */; };
 		107AAF9620BB694700D318BE /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AAF9520BB694700D318BE /* Action.swift */; };
+		10DE267C20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE267B20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		107AAF8B20BB233C00D318BE /* ActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		107AAF9220BB373200D318BE /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
 		107AAF9520BB694700D318BE /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
+		10DE267B20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddScreenViewControllerDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 		10DE267820C0AC5800A2515E /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				10DE267B20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -179,6 +182,7 @@
 				107AAF7A20BB14C000D318BE /* ViewController.swift in Sources */,
 				107AAF9420BB373200D318BE /* Record.swift in Sources */,
 				107AAF7820BB14C000D318BE /* AppDelegate.swift in Sources */,
+				10DE267C20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift in Sources */,
 				107AAF9620BB694700D318BE /* Action.swift in Sources */,
 				107AAF8C20BB233C00D318BE /* ActionViewController.swift in Sources */,
 			);
