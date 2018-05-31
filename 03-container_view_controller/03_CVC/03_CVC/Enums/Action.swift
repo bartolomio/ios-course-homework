@@ -25,7 +25,8 @@ enum Action{
             case .delete_Record:
                 delegate?.deleteRecord()
             
-            default:break // you can implement .no_Action case instead of "default", but this is optional
+            case .no_Action:break
+            
         }
     }
 }

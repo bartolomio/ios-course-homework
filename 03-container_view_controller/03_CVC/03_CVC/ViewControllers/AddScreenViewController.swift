@@ -8,13 +8,6 @@
 
 import UIKit
 
-//Make sence to create separate file for this protocol, but this is optional
-protocol AddScreenViewControllerDelegate: class {
-    func addRecord(record:Record)
-    func updateRecord(record:Record)
-    func deleteRecord()
-}
-
 class AddScreenViewController: UIViewController {
 
     @IBOutlet weak var nameLabel: UITextField!

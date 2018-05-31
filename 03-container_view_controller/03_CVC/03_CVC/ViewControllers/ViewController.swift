@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, AddScreenViewControllerDelegate {// <----- conform to this protocol via Extension please
+class ViewController: UIViewController {
     
     @IBOutlet weak var mainTable: UITableView!
     @IBOutlet weak var addButton: UIButton!
@@ -28,29 +28,7 @@ class ViewController: UIViewController, AddScreenViewControllerDelegate {// <---
         editButton.widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
-    func addRecord(record: Record) {
-        records.append(record)
-        mainTable.beginUpdates()
-        let indexPath = IndexPath(row: records.count - 1, section: 0)
-        mainTable.insertRows(at: [indexPath], with: .automatic)
-        mainTable.endUpdates()
-    }
-    
-    func updateRecord(record: Record) {
-        if let selectedRow = mainTable.indexPathForSelectedRow?.row{
-            records[selectedRow] = record
-            mainTable.reloadRows(at: [mainTable.indexPathForSelectedRow!], with: .none)
-            editButton.isEnabled = false
-        }
-    }
-    
-    func deleteRecord() {
-        if let selectedRow = mainTable.indexPathForSelectedRow?.row{
-            records.remove(at: selectedRow)
-        }
-        mainTable.reloadData()
-        editButton.isEnabled = false
-    }
+
     
     //MARK: Actions
     
@@ -85,7 +63,6 @@ class ViewController: UIViewController, AddScreenViewControllerDelegate {// <---
     
 }
 
-// Good!
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return records.count
@@ -104,6 +81,32 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         editButton.isEnabled = true
+    }
+}
+
+extension ViewController: AddScreenViewControllerDelegate {
+    func addRecord(record: Record) {
+        records.append(record)
+        mainTable.beginUpdates()
+        let indexPath = IndexPath(row: records.count - 1, section: 0)
+        mainTable.insertRows(at: [indexPath], with: .automatic)
+        mainTable.endUpdates()
+    }
+    
+    func updateRecord(record: Record) {
+        if let selectedRow = mainTable.indexPathForSelectedRow?.row{
+            records[selectedRow] = record
+            mainTable.reloadRows(at: [mainTable.indexPathForSelectedRow!], with: .none)
+            editButton.isEnabled = false
+        }
+    }
+    
+    func deleteRecord() {
+        if let selectedRow = mainTable.indexPathForSelectedRow?.row{
+            records.remove(at: selectedRow)
+        }
+        mainTable.reloadData()
+        editButton.isEnabled = false
     }
 }
 
