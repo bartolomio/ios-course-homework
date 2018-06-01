@@ -19,7 +19,7 @@ enum Action{
         case .add_Record:
             delegate?.addRecord(record: record!)
         case .edit_Record:
-            delegate?.updateRecord(record: record!)
+            delegate?.updateRecord()
         case .delete_Record:
             delegate?.deleteRecord()
         default:break

@@ -31,15 +31,9 @@ class ViewController: UIViewController {
         tableView.trailingAnchor.constraint(equalTo: self.editButton.trailingAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: self.editButton.topAnchor, constant: -40).isActive = true
-
-        /*
-        let bottomConstraint = NSLayoutConstraint(item: tableView, attribute: .bottom, relatedBy: .equal, toItem: editButton, attribute: .top, multiplier: 1.0, constant: -40.0)
         
-        let leadingConstraint = NSLayoutConstraint(item: tableView, attribute: .leading, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .leading, multiplier: 1, constant: 0)
-        let trailingConstraint = NSLayoutConstraint(item: tableView, attribute: .trailing, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .trailing, multiplier: 1, constant: 0)
-        let topConstraint = NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 0)
-        self.view.addConstraints([bottomConstraint,leadingConstraint,trailingAnchor,topConstraint])
-        */
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name(rawValue: "record_edited"), object: nil)
+        
         super.viewDidLoad()
         
     }
@@ -54,15 +48,19 @@ class ViewController: UIViewController {
         self.performSegue(withIdentifier: "toActionView", sender: self)
     }
     
+    @objc func reloadTableView(notification: Notification) {
+        if notification.name.rawValue == "record_edited" {
+            print("[LOG MESSAGE] Notification received")
+            self.tableView.reloadData()
+        }
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let actionViewController = segue.destination as? ActionViewController {
             actionViewController.delegate = self
             actionViewController.action = self.action
             if self.action == Action.edit_Record {
                 if let selectedRow = self.tableView.indexPathForSelectedRow?.row {
-                    actionViewController.name = records[selectedRow].name
-                    actionViewController.tags = records[selectedRow].tagsAsString()
-                    actionViewController.text = records[selectedRow].text
+                    actionViewController.oldRecord = records[selectedRow]
                     actionViewController.deleteButtonHiden = false
                     actionViewController.deleteButtonEnabled = true
                 }
@@ -108,12 +106,8 @@ extension ViewController: ActionViewControllerDelegate{
         self.tableView.endUpdates()
     }
     
-    func updateRecord(record: Record) {
-        if let selectedRow = self.tableView.indexPathForSelectedRow?.row{
-            records[selectedRow] = record
-            self.tableView.reloadRows(at: [self.tableView.indexPathForSelectedRow!], with: .none)
-            editButton.isEnabled = false
-        }
+    func updateRecord() {
+        editButton.isEnabled = false
     }
     
     func deleteRecord() {

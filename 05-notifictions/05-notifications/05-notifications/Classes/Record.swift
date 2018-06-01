@@ -52,6 +52,9 @@ class Record {
             self.init(name: name, text: text, tags: tags)
         }
     }
+    deinit {
+        print("Record deleted")
+    }
     
     func addTag (tag: String){
         self.tags.append(tag)

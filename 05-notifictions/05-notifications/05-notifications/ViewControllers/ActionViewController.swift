@@ -15,6 +15,7 @@ class ActionViewController: UIViewController {
     var name: String? = nil
     var tags: String? = nil
     var text: String? = nil
+    var oldRecord: Record = Record(name: nil, text: nil, tags: nil)
     var action: Action = Action.no_Action
     var deleteButtonHiden: Bool = true
     var deleteButtonEnabled: Bool = false
@@ -32,9 +33,9 @@ class ActionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameTextField.text = name
-        tagsTextField.text = tags
-        textTextField.text = text
+        nameTextField.text = oldRecord.name
+        tagsTextField.text = oldRecord.tagsAsString()
+        textTextField.text = oldRecord.text
         deleteButton.isHidden = deleteButtonHiden
         deleteButton.isEnabled = deleteButtonEnabled
         
@@ -60,8 +61,25 @@ class ActionViewController: UIViewController {
         } else {
             tags = nil
         }
-        let record = Record(name: name, text: text, tags: tags)
-        action.performAction(delegate: delegate, record: record)
+        if action == Action.add_Record {
+            let newRecord = Record(name: name, text: text, tags: tags)
+            action.performAction(delegate: delegate, record: newRecord)
+            
+        } else if action == Action.edit_Record {
+            if (text != oldRecord.text) ||
+               (name != oldRecord.name) ||
+               (tags != oldRecord.tagsAsString()) {
+                oldRecord.name = name
+                oldRecord.text = text
+                if let _: String = tags {
+                    oldRecord.tags = tags!.components(separatedBy: ",")
+                }
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "record_edited"), object: nil)
+                
+                action.performAction(delegate: delegate)
+            }
+        }
+        
         self.navigationController?.popViewController(animated: true)
     }
     

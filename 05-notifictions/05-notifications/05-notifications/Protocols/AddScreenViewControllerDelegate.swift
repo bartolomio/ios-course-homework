@@ -11,7 +11,7 @@ import Foundation
 protocol ActionViewControllerDelegate: class {
     
     func addRecord(record:Record)
-    func updateRecord(record:Record)
+    func updateRecord()
     func deleteRecord()
     
 }
