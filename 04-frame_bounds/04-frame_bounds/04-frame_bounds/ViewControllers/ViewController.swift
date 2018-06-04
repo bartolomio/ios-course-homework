@@ -10,16 +10,20 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var editButton: UIButton! // not consistent with iOS HIG
+    
     var tableView: UITableView = UITableView()
     var records: [Record] = [Record]()
     var action: Action = Action.no_Action
-    @IBOutlet weak var editButton: UIButton!
     var conststrains: [NSLayoutConstraint] = [NSLayoutConstraint]()
     
+    //Dont forget to MARK sections, please :)
     
+    //MARK: View Controller Lifecycle
     
     override func viewDidLoad() {
-       
+        super.viewDidLoad()
+
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
@@ -40,8 +44,6 @@ class ViewController: UIViewController {
         let topConstraint = NSLayoutConstraint(item: tableView, attribute: .top, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .top, multiplier: 1, constant: 0)
         self.view.addConstraints([bottomConstraint,leadingConstraint,trailingAnchor,topConstraint])
         */
-        super.viewDidLoad()
-        
     }
     
     @IBAction func onAddButtonTapped(_ sender: Any) {
@@ -52,6 +54,11 @@ class ViewController: UIViewController {
     @IBAction func onEditButtonTapped(_ sender: Any) {
         self.action = Action.edit_Record
         self.performSegue(withIdentifier: "toActionView", sender: self)
+        
+        
+        // Beter use UITableView delegate methods like
+        // didSelectRowAt:
+        // and handle editing of note there
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -69,7 +76,6 @@ class ViewController: UIViewController {
             }
         }
     }
-
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
@@ -90,15 +96,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         editButton.isEnabled = true
+        
+        //just hanle editing by indexPath, no need to use adittional "editButton"
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height / 3
     }
-    
 }
 
-extension ViewController: ActionViewControllerDelegate{
+extension ViewController: ActionViewControllerDelegate {
    
     func addRecord(record: Record) {
         self.records.append(record)
@@ -123,7 +130,5 @@ extension ViewController: ActionViewControllerDelegate{
         self.tableView.reloadData()
         editButton.isEnabled = false
     }
-    
-    
 }
 

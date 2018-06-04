@@ -20,14 +20,12 @@ class ActionViewController: UIViewController {
     var deleteButtonEnabled: Bool = false
     
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var tagsTextField: UITextField!
-    
     @IBOutlet weak var textTextField: UITextField!
-    
     @IBOutlet weak var okButton: UIButton!
-    
     @IBOutlet weak var deleteButton: UIButton!
+    
+    //MARK: please :)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,8 +69,6 @@ class ActionViewController: UIViewController {
         deleteButton.isEnabled = false
         self.navigationController?.popViewController(animated: true)
     }
-    
-
 }
 
 extension ActionViewController: UITextFieldDelegate{
