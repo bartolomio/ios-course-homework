@@ -21,14 +21,12 @@ class ActionViewController: UIViewController {
     var deleteButtonEnabled: Bool = false
     
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var tagsTextField: UITextField!
-    
     @IBOutlet weak var textTextField: UITextField!
-    
     @IBOutlet weak var okButton: UIButton!
-    
     @IBOutlet weak var deleteButton: UIButton!
+    
+    //MARK: Action View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +73,6 @@ class ActionViewController: UIViewController {
                     oldRecord.tags = tags!.components(separatedBy: ",")
                 }
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "record_edited"), object: nil)
-                
-                action.performAction(delegate: delegate)
             }
         }
         
@@ -89,10 +85,8 @@ class ActionViewController: UIViewController {
         deleteButton.isEnabled = false
         self.navigationController?.popViewController(animated: true)
     }
-    
-
 }
-
+//MARK: UITextFieldDelegate conforming
 extension ActionViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.nameTextField.resignFirstResponder()
