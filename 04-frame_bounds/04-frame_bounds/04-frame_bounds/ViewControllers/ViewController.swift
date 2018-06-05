@@ -10,8 +10,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var editButton: UIButton! // not consistent with iOS HIG
-    
     var tableView: UITableView = UITableView()
     var records: [Record] = [Record]()
     var action: Action = Action.no_Action
@@ -31,10 +29,10 @@ class ViewController: UIViewController {
         self.view.addSubview(tableView)
         self.tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.leadingAnchor.constraint(equalTo: self.editButton.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: self.editButton.trailingAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: self.editButton.topAnchor, constant: -40).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
 
         /*
         let bottomConstraint = NSLayoutConstraint(item: tableView, attribute: .bottom, relatedBy: .equal, toItem: editButton, attribute: .top, multiplier: 1.0, constant: -40.0)
@@ -49,16 +47,6 @@ class ViewController: UIViewController {
     @IBAction func onAddButtonTapped(_ sender: Any) {
         self.action = Action.add_Record
         self.performSegue(withIdentifier: "toActionView", sender: self)
-    }
-    
-    @IBAction func onEditButtonTapped(_ sender: Any) {
-        self.action = Action.edit_Record
-        self.performSegue(withIdentifier: "toActionView", sender: self)
-        
-        
-        // Beter use UITableView delegate methods like
-        // didSelectRowAt:
-        // and handle editing of note there
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -77,7 +65,7 @@ class ViewController: UIViewController {
         }
     }
 }
-
+//MARK: UITableViewDelegate and UITableViewDataSource conforming
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return records.count
@@ -95,16 +83,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        editButton.isEnabled = true
-        
-        //just hanle editing by indexPath, no need to use adittional "editButton"
+        self.action = Action.edit_Record
+        self.performSegue(withIdentifier: "toActionView", sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height / 3
     }
 }
-
+//MARK: ActionViewControllerDelegate conforming
 extension ViewController: ActionViewControllerDelegate {
    
     func addRecord(record: Record) {
@@ -119,7 +106,6 @@ extension ViewController: ActionViewControllerDelegate {
         if let selectedRow = self.tableView.indexPathForSelectedRow?.row{
             records[selectedRow] = record
             self.tableView.reloadRows(at: [self.tableView.indexPathForSelectedRow!], with: .none)
-            editButton.isEnabled = false
         }
     }
     
@@ -128,7 +114,6 @@ extension ViewController: ActionViewControllerDelegate {
             records.remove(at: selectedRow)
         }
         self.tableView.reloadData()
-        editButton.isEnabled = false
     }
 }
 

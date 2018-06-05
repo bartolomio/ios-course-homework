@@ -25,7 +25,7 @@ class ActionViewController: UIViewController {
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     
-    //MARK: please :)
+    //MARK: Action View Controller Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -70,7 +70,7 @@ class ActionViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 }
-
+//MARK: UITextFieldDelegate conforming
 extension ActionViewController: UITextFieldDelegate{
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.nameTextField.resignFirstResponder()
