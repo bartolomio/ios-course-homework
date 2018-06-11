@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		105F2FD420CF139500A19E3B /* RecordsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F2FD320CF139500A19E3B /* RecordsHandler.swift */; };
+		105F2FD820CF19A900A19E3B /* FullListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F2FD720CF19A900A19E3B /* FullListViewController.swift */; };
+		105F2FDA20CF19E000A19E3B /* FuturedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F2FD920CF19E000A19E3B /* FuturedViewController.swift */; };
+		105F2FDC20CF19FF00A19E3B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105F2FDB20CF19FF00A19E3B /* SettingsViewController.swift */; };
 		107AAF7820BB14C000D318BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 107AAF7720BB14C000D318BE /* AppDelegate.swift */; };
 		107AAF7D20BB14C000D318BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107AAF7B20BB14C000D318BE /* Main.storyboard */; };
 		107AAF7F20BB14C100D318BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107AAF7E20BB14C100D318BE /* Assets.xcassets */; };
@@ -21,6 +24,9 @@
 
 /* Begin PBXFileReference section */
 		105F2FD320CF139500A19E3B /* RecordsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordsHandler.swift; sourceTree = "<group>"; };
+		105F2FD720CF19A900A19E3B /* FullListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullListViewController.swift; sourceTree = "<group>"; };
+		105F2FD920CF19E000A19E3B /* FuturedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuturedViewController.swift; sourceTree = "<group>"; };
+		105F2FDB20CF19FF00A19E3B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		107AAF7420BB14C000D318BE /* 06-MVP-CVC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "06-MVP-CVC.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		107AAF7720BB14C000D318BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		107AAF7C20BB14C000D318BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -99,6 +105,9 @@
 			children = (
 				10E6E76620C7213C00E0E99D /* ActionViewController.swift */,
 				10E6E76520C7213C00E0E99D /* ViewController.swift */,
+				105F2FD720CF19A900A19E3B /* FullListViewController.swift */,
+				105F2FD920CF19E000A19E3B /* FuturedViewController.swift */,
+				105F2FDB20CF19FF00A19E3B /* SettingsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,10 +202,13 @@
 				10E6E76820C7213C00E0E99D /* ActionViewController.swift in Sources */,
 				107AAF7820BB14C000D318BE /* AppDelegate.swift in Sources */,
 				10DE267C20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift in Sources */,
+				105F2FDC20CF19FF00A19E3B /* SettingsViewController.swift in Sources */,
 				10E6E76C20C721E800E0E99D /* Action.swift in Sources */,
 				10E6E76720C7213C00E0E99D /* ViewController.swift in Sources */,
+				105F2FD820CF19A900A19E3B /* FullListViewController.swift in Sources */,
 				105F2FD420CF139500A19E3B /* RecordsHandler.swift in Sources */,
 				10E6E76D20C721E800E0E99D /* Record.swift in Sources */,
+				105F2FDA20CF19E000A19E3B /* FuturedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
