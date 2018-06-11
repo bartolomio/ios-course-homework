@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController {
     
     var tableView: UITableView = UITableView()
-    var records: [Record] = [Record]()
     var action: Action = Action.no_Action
     var conststrains: [NSLayoutConstraint] = [NSLayoutConstraint]()
     
@@ -53,7 +52,7 @@ class ViewController: UIViewController {
             actionViewController.action = self.action
             if self.action == Action.edit_Record {
                 if let selectedRow = self.tableView.indexPathForSelectedRow?.row {
-                    actionViewController.oldRecord = records[selectedRow]
+                    actionViewController.oldRecord = RecordHandler.shared.records[selectedRow]
                     actionViewController.deleteButtonHiden = false
                     actionViewController.deleteButtonEnabled = true
                 }
@@ -64,12 +63,12 @@ class ViewController: UIViewController {
 //MARK: UITableViewDelegate and UITableViewDataSource conforming
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return records.count
+        return RecordHandler.shared.records.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let record = records[indexPath.row]
+        let record = RecordHandler.shared.records[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         cell.translatesAutoresizingMaskIntoConstraints = false
@@ -91,16 +90,16 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 extension ViewController: ActionViewControllerDelegate{
    
     func addRecord(record: Record) {
-        self.records.append(record)
+        RecordHandler.shared.records.append(record)
         self.tableView.beginUpdates()
-        let indexPath = IndexPath(row: self.records.count - 1, section: 0)
+        let indexPath = IndexPath(row: RecordHandler.shared.records.count - 1, section: 0)
         self.tableView.insertRows(at: [indexPath], with: .automatic)
         self.tableView.endUpdates()
     }
     
     func deleteRecord() {
         if let selectedRow = self.tableView.indexPathForSelectedRow?.row{
-            records.remove(at: selectedRow)
+            RecordHandler.shared.records.remove(at: selectedRow)
         }
         self.tableView.reloadData()
     }
