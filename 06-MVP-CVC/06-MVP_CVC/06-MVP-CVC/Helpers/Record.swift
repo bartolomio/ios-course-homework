@@ -28,6 +28,8 @@ class Record {
         }
     }
     
+    var favorite : Bool = false
+    
     init(name: String? = nil, text: String? = nil, tags: String? = nil) {
         self.date = Date()
         

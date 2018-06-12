@@ -18,7 +18,7 @@ class FullListViewController: UIViewController {
         
         self.fullListTableView.delegate = self
         self.fullListTableView.dataSource = self
-        self.fullListTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        self.fullListTableView.register(FullListCell.self, forCellReuseIdentifier: "cell")
         
         self.view.addSubview(fullListTableView)
         self.fullListTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -44,6 +44,21 @@ class FullListViewController: UIViewController {
         self.performSegue(withIdentifier: "toActionView", sender: self)
     }
     
+    func handeFavoriteClick (cell: FullListCell){
+        let indexPath = fullListTableView.indexPath(for: cell)
+        if let _: IndexPath = indexPath {
+            if RecordHandler.shared.records[indexPath!.row].favorite == true{
+                RecordHandler.shared.records[indexPath!.row].favorite = false
+                cell.accessoryView?.tintColor = .gray
+            } else {
+                RecordHandler.shared.records[indexPath!.row].favorite = true
+                cell.accessoryView?.tintColor = .orange
+            }
+            fullListTableView.reloadRows(at: [indexPath!], with: .automatic)
+            print("cell with indexPath \(indexPath!) is favorite? \(RecordHandler.shared.records[indexPath!.row].favorite)")
+        }
+        
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let actionViewController = segue.destination as? ActionViewController {
             actionViewController.delegate = self
@@ -70,7 +85,8 @@ extension FullListViewController: UITableViewDelegate, UITableViewDataSource {
         
         let record = RecordHandler.shared.records[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! FullListCell
+        cell.viewController = self
         cell.translatesAutoresizingMaskIntoConstraints = false
         cell.textLabel?.numberOfLines = 4
         cell.textLabel?.text = record.description()
