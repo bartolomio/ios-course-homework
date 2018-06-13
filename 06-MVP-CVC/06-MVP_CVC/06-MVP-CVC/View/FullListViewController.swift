@@ -13,6 +13,7 @@ class FullListViewController: UIViewController {
     var fullListTableView: UITableView = UITableView()
     var action: Action = Action.no_Action
     
+    //MARK: Full List View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,15 +48,8 @@ class FullListViewController: UIViewController {
     func handeFavoriteClick (cell: FullListCell){
         let indexPath = fullListTableView.indexPath(for: cell)
         if let _: IndexPath = indexPath {
-            if RecordHandler.shared.records[indexPath!.row].favorite == true{
-                RecordHandler.shared.records[indexPath!.row].favorite = false
-                cell.accessoryView?.tintColor = .gray
-            } else {
-                RecordHandler.shared.records[indexPath!.row].favorite = true
-                cell.accessoryView?.tintColor = .orange
-            }
-            fullListTableView.reloadRows(at: [indexPath!], with: .automatic)
-            print("cell with indexPath \(indexPath!) is favorite? \(RecordHandler.shared.records[indexPath!.row].favorite)")
+            RecordHandler.shared.records[indexPath!.row].favorite = !RecordHandler.shared.records[indexPath!.row].favorite
+            cell.accessoryView?.tintColor = RecordHandler.shared.records[indexPath!.row].favorite ? .orange : .gray
         }
         
     }
@@ -101,6 +95,25 @@ extension FullListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.frame.height / 3
     }
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favorite = favoriteAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [favorite])
+    }
+    
+    func favoriteAction (at indexPath:IndexPath) -> UIContextualAction{
+        let record = RecordHandler.shared.records[indexPath.row]
+        let action = UIContextualAction(style: .normal, title: "favorite") { (action, view, completion) in
+            record.favorite = !record.favorite
+            completion(true)
+            let cell = self.fullListTableView.cellForRow(at: indexPath)
+            cell!.accessoryView?.tintColor = RecordHandler.shared.records[indexPath.row].favorite ? .orange : .gray
+        }
+        action.image = #imageLiteral(resourceName: "star")
+        action.backgroundColor = record.favorite ? .orange : .gray
+        return action
+    }
+    
 }
 
 //MARK: ActionViewControllerDelegate conforming
