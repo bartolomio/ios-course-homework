@@ -12,15 +12,23 @@ class FuturedViewController: UIViewController {
 
     @IBOutlet weak var favoriteTableView: UITableView!
     
+    var cellWhiteColor = true
+    
     //MARK: Futured View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         favoriteTableView.delegate = self
         favoriteTableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(setBlackTheme), name: NSNotification.Name(rawValue: "black_theme"), object: nil)
 
     }
-    
+    @objc func setBlackTheme(){
+        self.favoriteTableView.backgroundColor = .black
+        self.cellWhiteColor = false
+        self.favoriteTableView.reloadData()
+    }
     override func viewDidAppear(_ animated: Bool) {
         self.favoriteTableView.reloadData()
     }
@@ -41,6 +49,9 @@ extension FuturedViewController: UITableViewDelegate, UITableViewDataSource {
         cell.translatesAutoresizingMaskIntoConstraints = false
         cell.textLabel?.numberOfLines = 4
         cell.textLabel?.text = record.description()
+        cell.backgroundColor = cellWhiteColor ? .white : .black
+        cell.textLabel?.textColor = cellWhiteColor ? .black : .white
+        
         return cell
     }
     

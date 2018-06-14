@@ -17,10 +17,68 @@
                     <view key="view" contentMode="scaleToFill" id="Rvw-bn-6Ed">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wg6-BC-PZF">
+                                <rect key="frame" x="20" y="90" width="52" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Gb9-MU-I6I"/>
+                                    <constraint firstAttribute="width" constant="50" id="cCT-6Z-h88"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="onBlackThemeSwitcherTapped:" destination="a9u-lJ-Ao9" eventType="valueChanged" id="9Jx-aR-bML"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jbn-h5-rdE">
+                                <rect key="frame" x="0.0" y="20" width="375" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Ech-AD-xUr"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Settings">
+                                        <attributes>
+                                            <font key="NSFont" size="36" name="AmericanTypewriter-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3cb-zz-A8w">
+                                <rect key="frame" x="100" y="90" width="265" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="PVu-bV-K5W"/>
+                                </constraints>
+                                <attributedString key="attributedText">
+                                    <fragment content="Black Theme">
+                                        <attributes>
+                                            <font key="NSFont" size="24" name="AmericanTypewriter-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Jbn-h5-rdE" firstAttribute="top" secondItem="qmI-nm-EtQ" secondAttribute="top" id="ArX-Jf-6h3"/>
+                            <constraint firstItem="3cb-zz-A8w" firstAttribute="top" secondItem="Jbn-h5-rdE" secondAttribute="bottom" constant="30" id="LDC-Rf-PNw"/>
+                            <constraint firstItem="Wg6-BC-PZF" firstAttribute="leading" secondItem="qmI-nm-EtQ" secondAttribute="leading" constant="20" id="NQ4-9o-EY6"/>
+                            <constraint firstItem="Wg6-BC-PZF" firstAttribute="top" secondItem="Jbn-h5-rdE" secondAttribute="bottom" constant="30" id="UM6-Nh-H40"/>
+                            <constraint firstItem="qmI-nm-EtQ" firstAttribute="trailing" secondItem="Jbn-h5-rdE" secondAttribute="trailing" id="aFU-lO-Dh4"/>
+                            <constraint firstItem="qmI-nm-EtQ" firstAttribute="trailing" secondItem="3cb-zz-A8w" secondAttribute="trailing" constant="10" id="agA-Bc-uCD"/>
+                            <constraint firstItem="Jbn-h5-rdE" firstAttribute="leading" secondItem="qmI-nm-EtQ" secondAttribute="leading" id="b1I-u0-GwH"/>
+                            <constraint firstItem="3cb-zz-A8w" firstAttribute="leading" secondItem="Wg6-BC-PZF" secondAttribute="trailing" constant="30" id="mqk-cl-f5E"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="qmI-nm-EtQ"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settingsTabIcon" selectedImage="settingsTabIcon" id="X2x-Pl-wVz"/>
+                    <connections>
+                        <outlet property="blackThemeLabel" destination="3cb-zz-A8w" id="DBU-nM-B8m"/>
+                        <outlet property="blackThemeSwitcher" destination="Wg6-BC-PZF" id="MuT-S0-ThT"/>
+                        <outlet property="settingsLable" destination="Jbn-h5-rdE" id="3Wa-ZW-xgL"/>
+                        <outlet property="view" destination="Rvw-bn-6Ed" id="VpS-xK-UFQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8k-wT-dsx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
