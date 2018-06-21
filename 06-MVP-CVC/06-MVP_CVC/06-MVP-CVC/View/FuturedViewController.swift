@@ -22,11 +22,18 @@ class FuturedViewController: UIViewController {
         favoriteTableView.dataSource = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(setBlackTheme), name: NSNotification.Name(rawValue: "black_theme"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setWhiteTheme), name: NSNotification.Name(rawValue: "white_theme"), object: nil)
 
     }
     @objc func setBlackTheme(){
         self.favoriteTableView.backgroundColor = .black
         self.cellWhiteColor = false
+        self.favoriteTableView.reloadData()
+    }
+    
+    @objc func setWhiteTheme(){
+        self.favoriteTableView.backgroundColor = .white
+        self.cellWhiteColor = true
         self.favoriteTableView.reloadData()
     }
     override func viewDidAppear(_ animated: Bool) {

@@ -15,6 +15,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var blackThemeLabel: UILabel!
     @IBOutlet weak var settingsLable: UILabel!
     @IBOutlet weak var blackThemeSwitcher: UISwitch!
+    
     //MARK: Settings View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
