@@ -13,7 +13,7 @@
         <!--Settings-->
         <scene sceneID="bLD-LB-tAq">
             <objects>
-                <viewController id="a9u-lJ-Ao9" customClass="SettingsViewController" customModule="_7_CALayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="a9u-lJ-Ao9" customClass="SettingsViewController" customModule="_8_UICollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rvw-bn-6Ed">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,7 +87,7 @@
         <!--Futured View Controller-->
         <scene sceneID="TPj-sS-S3g">
             <objects>
-                <viewController id="LMi-Nu-KzN" customClass="FuturedViewController" customModule="_7_CALayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LMi-Nu-KzN" customClass="FuturedViewController" customModule="_8_UICollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P9p-SG-aIk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,7 +128,7 @@
         <!--Full List View Controller-->
         <scene sceneID="pSU-DH-861">
             <objects>
-                <viewController id="fDU-2c-ah1" customClass="FullListViewController" customModule="_7_CALayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="fDU-2c-ah1" customClass="FullListViewController" customModule="_8_UICollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6jH-eT-gQl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,7 +153,7 @@
         <!--Instruction Page View Controller-->
         <scene sceneID="8Z2-LX-h9B">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="JaZ-sL-3UQ" customClass="InstructionPageViewController" customModule="_7_CALayer" customModuleProvider="target" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="JaZ-sL-3UQ" customClass="InstructionPageViewController" customModule="_8_UICollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </pageViewController>
@@ -164,7 +164,7 @@
         <!--Add Instruction View Controller-->
         <scene sceneID="dPJ-fz-Agg">
             <objects>
-                <viewController storyboardIdentifier="AddInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hGJ-So-TmE" customClass="AddInstructionViewController" customModule="_7_CALayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hGJ-So-TmE" customClass="AddInstructionViewController" customModule="_8_UICollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FkA-hZ-YPm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,7 +198,7 @@
         <!--Edit Instruction View Controller-->
         <scene sceneID="xkR-U5-Tfc">
             <objects>
-                <viewController storyboardIdentifier="EditDeleteInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vBn-9K-opP" customClass="EditInstructionViewController" customModule="_7_CALayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditDeleteInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vBn-9K-opP" customClass="EditInstructionViewController" customModule="_8_UICollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QMl-bP-cec">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -232,7 +232,7 @@
         <!--Favorite Instruction View Controller-->
         <scene sceneID="8Wp-iG-qFI">
             <objects>
-                <viewController storyboardIdentifier="FavoriteInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0gY-Hm-4i5" customClass="FavoriteInstructionViewController" customModule="_7_CALayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0gY-Hm-4i5" customClass="FavoriteInstructionViewController" customModule="_8_UICollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X6g-jU-lAI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,7 +301,7 @@
         <!--Action View Controller-->
         <scene sceneID="zsi-wu-hEo">
             <objects>
-                <viewController id="LID-fi-H7g" customClass="ActionViewController" customModule="_7_CALayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LID-fi-H7g" customClass="ActionViewController" customModule="_8_UICollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5ub-2t-qZu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -309,8 +309,25 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1EI-D1-Hyi">
                                 <rect key="frame" x="0.0" y="64" width="375" height="454"/>
                                 <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4z-7c-yyw">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="98.5"/>
+                                        <subviews>
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-camera" translatesAutoresizingMaskIntoConstraints="NO" id="ZXO-59-cjH">
+                                                <rect key="frame" x="127.5" y="0.0" width="120" height="98.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="120" id="XRV-MT-z3d"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="ZXO-59-cjH" firstAttribute="centerX" secondItem="E4z-7c-yyw" secondAttribute="centerX" id="QNl-Vh-IPE"/>
+                                            <constraint firstItem="ZXO-59-cjH" firstAttribute="top" secondItem="E4z-7c-yyw" secondAttribute="top" id="xdw-dI-qqu"/>
+                                            <constraint firstAttribute="bottom" secondItem="ZXO-59-cjH" secondAttribute="bottom" id="zC7-sR-tO3"/>
+                                        </constraints>
+                                    </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NWj-qe-sPB">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
+                                        <rect key="frame" x="0.0" y="118.5" width="375" height="98.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bd5-F4-SB3">
                                                 <rect key="frame" x="10" y="10" width="355" height="20.5"/>
@@ -339,7 +356,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sY5-Ny-fvC">
-                                        <rect key="frame" x="0.0" y="158" width="375" height="138"/>
+                                        <rect key="frame" x="0.0" y="237" width="375" height="98.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tags" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vv5-ro-YQF">
                                                 <rect key="frame" x="10" y="10" width="355" height="20.5"/>
@@ -368,7 +385,7 @@
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3P-9w-4Ck">
-                                        <rect key="frame" x="0.0" y="316" width="375" height="138"/>
+                                        <rect key="frame" x="0.0" y="355.5" width="375" height="98.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rU9-ly-1wR">
                                                 <rect key="frame" x="10" y="10" width="355" height="20.5"/>
@@ -426,7 +443,7 @@
                             <constraint firstItem="1EI-D1-Hyi" firstAttribute="trailing" secondItem="3Nf-eX-ntq" secondAttribute="trailing" id="4ND-Q9-cYf"/>
                             <constraint firstItem="1EI-D1-Hyi" firstAttribute="leading" secondItem="3Nf-eX-ntq" secondAttribute="leading" id="Mu2-PB-9sh"/>
                             <constraint firstItem="pZh-Bi-mro" firstAttribute="bottom" secondItem="3Nf-eX-ntq" secondAttribute="bottom" id="Y4Y-vw-MWQ"/>
-                            <constraint firstItem="1EI-D1-Hyi" firstAttribute="top" secondItem="3Nf-eX-ntq" secondAttribute="top" id="j3Z-cs-skt"/>
+                            <constraint firstItem="1EI-D1-Hyi" firstAttribute="top" secondItem="3Nf-eX-ntq" secondAttribute="top" id="bJl-Sd-8eo"/>
                             <constraint firstItem="pZh-Bi-mro" firstAttribute="leading" secondItem="3Nf-eX-ntq" secondAttribute="leading" id="mXG-zE-WBj"/>
                             <constraint firstItem="3Nf-eX-ntq" firstAttribute="trailing" secondItem="pZh-Bi-mro" secondAttribute="trailing" id="wmJ-Pk-atv"/>
                             <constraint firstItem="3Nf-eX-ntq" firstAttribute="bottom" secondItem="1EI-D1-Hyi" secondAttribute="bottom" constant="100" id="xk5-Xw-7n4"/>
@@ -437,6 +454,7 @@
                         <outlet property="deleteButton" destination="LTD-X0-RCH" id="U4N-O3-a8n"/>
                         <outlet property="nameTextField" destination="MRt-tS-wey" id="0kk-Ik-Bye"/>
                         <outlet property="okButton" destination="gj9-e7-uqm" id="Yvi-K8-efj"/>
+                        <outlet property="photoImageView" destination="ZXO-59-cjH" id="UFZ-vD-fSG"/>
                         <outlet property="tagsTextField" destination="9Q1-Jx-qpd" id="hcQ-ot-Zf0"/>
                         <outlet property="textTextField" destination="me4-xN-nbI" id="xKI-m3-fOQ"/>
                     </connections>
@@ -470,6 +488,7 @@
         <image name="addInstruction1" width="637" height="1134"/>
         <image name="editDeleteInstruction1" width="637" height="1134"/>
         <image name="favoriteInstruction" width="637" height="1134"/>
+        <image name="photo-camera" width="275" height="275"/>
         <image name="settingsTabIcon" width="25" height="25"/>
     </resources>
 </document>

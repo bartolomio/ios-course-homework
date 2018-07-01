@@ -84,6 +84,8 @@ extension FullListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.translatesAutoresizingMaskIntoConstraints = false
         cell.textLabel?.numberOfLines = 4
         cell.textLabel?.text = record.description()
+        cell.imageView?.image = record.image
+        cell.imageView?.clipsToBounds = true
         return cell
     }
     

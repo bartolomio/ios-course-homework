@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ActionViewController: UIViewController {
+class ActionViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     weak var delegate: ActionViewControllerDelegate?
     
@@ -19,12 +19,14 @@ class ActionViewController: UIViewController {
     var action: Action = Action.no_Action
     var deleteButtonHiden: Bool = true
     var deleteButtonEnabled: Bool = false
+    let imagePicker = UIImagePickerController()
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var tagsTextField: UITextField!
     @IBOutlet weak var textTextField: UITextField!
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var photoImageView: UIImageView!
     
     //MARK: Action View Controller Lifecycle
     
@@ -34,6 +36,7 @@ class ActionViewController: UIViewController {
         nameTextField.text = oldRecord.name
         tagsTextField.text = oldRecord.tagsAsString()
         textTextField.text = oldRecord.text
+        photoImageView.image = oldRecord.image
         deleteButton.isHidden = deleteButtonHiden
         deleteButton.isEnabled = deleteButtonEnabled
         
@@ -45,6 +48,66 @@ class ActionViewController: UIViewController {
         self.okButton.layer.borderWidth = 5.0
         self.deleteButton.layer.borderColor = UIColor.green.cgColor
         self.deleteButton.layer.borderWidth = 5.0
+        
+        let photoImageViewTapRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        self.photoImageView.addGestureRecognizer(photoImageViewTapRecognizer)
+        self.photoImageView.isUserInteractionEnabled = true
+        
+        imagePicker.delegate = self
+        
+    }
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
+    {
+        let alert = UIAlertController(title: "Choose Image", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Gallery", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+
+
+
+    }
+    
+    func openCamera(){
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+          imagePicker.allowsEditing = false
+          imagePicker.sourceType = .camera
+        
+          present(imagePicker, animated: true, completion: nil)
+        }
+        else {
+          let alert  = UIAlertController(title: "Warning", message: "You don't have camera", preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+          self.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func openGallery(){
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            imagePicker.allowsEditing = false
+            imagePicker.sourceType = .photoLibrary
+            
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            let alert  = UIAlertController(title: "Warning", message: "You don't have photo library", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        }
+
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        self.photoImageView.image = chosenImage
+        dismiss(animated:true, completion: nil)
     }
     
     @IBAction func onOkButtonTapped(_ sender: Any) {
@@ -65,17 +128,20 @@ class ActionViewController: UIViewController {
         }
         if action == Action.add_Record {
             let newRecord = Record(name: name, text: text, tags: tags)
+            newRecord.image = self.photoImageView.image!
             action.performAction(delegate: delegate, record: newRecord)
             
         } else if action == Action.edit_Record {
             if (text != oldRecord.text) ||
                (name != oldRecord.name) ||
-               (tags != oldRecord.tagsAsString()) {
+               (tags != oldRecord.tagsAsString()) ||
+               (photoImageView.image != oldRecord.image) {
                 oldRecord.name = name
                 oldRecord.text = text
                 if let _: String = tags {
                     oldRecord.tags = tags!.components(separatedBy: ",")
                 }
+                oldRecord.image = photoImageView.image!
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: "record_edited"), object: nil)
             }
         }
@@ -89,6 +155,7 @@ class ActionViewController: UIViewController {
         deleteButton.isEnabled = false
         self.navigationController?.popViewController(animated: true)
     }
+    
 }
 //MARK: UITextFieldDelegate conforming
 extension ActionViewController: UITextFieldDelegate{

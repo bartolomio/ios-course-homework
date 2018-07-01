@@ -58,7 +58,7 @@ extension FuturedViewController: UITableViewDelegate, UITableViewDataSource {
         cell.textLabel?.text = record.description()
         cell.backgroundColor = cellWhiteColor ? .white : .black
         cell.textLabel?.textColor = cellWhiteColor ? .black : .white
-        cell.imageView?.image = #imageLiteral(resourceName: "photo-camera")
+        cell.imageView?.image = record.image
         cell.imageView?.backgroundColor = .red
         cell.imageView?.layer.cornerRadius = 100.0
         cell.imageView?.clipsToBounds = true
