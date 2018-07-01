@@ -15,6 +15,9 @@
 		107AAF7D20BB14C000D318BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107AAF7B20BB14C000D318BE /* Main.storyboard */; };
 		107AAF7F20BB14C100D318BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107AAF7E20BB14C100D318BE /* Assets.xcassets */; };
 		107AAF8220BB14C100D318BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107AAF8020BB14C100D318BE /* LaunchScreen.storyboard */; };
+		10C496CF20E8E51200230C33 /* AddInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C496CE20E8E51200230C33 /* AddInstructionViewController.swift */; };
+		10C496D120E8E52500230C33 /* EditInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C496D020E8E52500230C33 /* EditInstructionViewController.swift */; };
+		10C496D320E8E53400230C33 /* FavoriteInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */; };
 		10DE267C20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE267B20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift */; };
 		10DEB2D120D07611007AD611 /* FullListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEB2D020D07611007AD611 /* FullListCell.swift */; };
 		10DEFA6620D9AFC800C03B43 /* InstructionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEFA6520D9AFC800C03B43 /* InstructionPageViewController.swift */; };
@@ -34,6 +37,9 @@
 		107AAF7E20BB14C100D318BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		107AAF8120BB14C100D318BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		107AAF8320BB14C100D318BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10C496CE20E8E51200230C33 /* AddInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInstructionViewController.swift; sourceTree = "<group>"; };
+		10C496D020E8E52500230C33 /* EditInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInstructionViewController.swift; sourceTree = "<group>"; };
+		10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInstructionViewController.swift; sourceTree = "<group>"; };
 		10DE267B20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddScreenViewControllerDelegate.swift; sourceTree = "<group>"; };
 		10DEB2D020D07611007AD611 /* FullListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullListCell.swift; sourceTree = "<group>"; };
 		10DEFA6520D9AFC800C03B43 /* InstructionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPageViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +116,9 @@
 				105F2FD920CF19E000A19E3B /* FuturedViewController.swift */,
 				105F2FDB20CF19FF00A19E3B /* SettingsViewController.swift */,
 				10DEFA6520D9AFC800C03B43 /* InstructionPageViewController.swift */,
+				10C496CE20E8E51200230C33 /* AddInstructionViewController.swift */,
+				10C496D020E8E52500230C33 /* EditInstructionViewController.swift */,
+				10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,10 +211,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10C496D120E8E52500230C33 /* EditInstructionViewController.swift in Sources */,
 				10E6E76820C7213C00E0E99D /* ActionViewController.swift in Sources */,
 				107AAF7820BB14C000D318BE /* AppDelegate.swift in Sources */,
 				10DE267C20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift in Sources */,
 				105F2FDC20CF19FF00A19E3B /* SettingsViewController.swift in Sources */,
+				10C496D320E8E53400230C33 /* FavoriteInstructionViewController.swift in Sources */,
 				10E6E76C20C721E800E0E99D /* Action.swift in Sources */,
 				105F2FD820CF19A900A19E3B /* FullListViewController.swift in Sources */,
 				10DEFA6620D9AFC800C03B43 /* InstructionPageViewController.swift in Sources */,
@@ -213,6 +224,7 @@
 				10DEB2D120D07611007AD611 /* FullListCell.swift in Sources */,
 				10E6E76D20C721E800E0E99D /* Record.swift in Sources */,
 				105F2FDA20CF19E000A19E3B /* FuturedViewController.swift in Sources */,
+				10C496CF20E8E51200230C33 /* AddInstructionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

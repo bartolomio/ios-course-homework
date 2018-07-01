@@ -161,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="-318" y="1488"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Instruction View Controller-->
         <scene sceneID="dPJ-fz-Agg">
             <objects>
-                <viewController storyboardIdentifier="AddInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hGJ-So-TmE" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hGJ-So-TmE" customClass="AddInstructionViewController" customModule="_6_MVP_CVC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FkA-hZ-YPm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,10 +173,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="547"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addInstruction1" translatesAutoresizingMaskIntoConstraints="NO" id="iua-Rl-hft">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="263.5"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addInsrtuction2" translatesAutoresizingMaskIntoConstraints="NO" id="n65-Ie-a8g">
-                                        <rect key="frame" x="0.0" y="283.5" width="375" height="263.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -190,15 +187,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kYG-IM-GjN"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="iua-Rl-hft" id="oeE-qT-nkV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lg-za-Z9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-927.20000000000005" y="2182.7586206896553"/>
         </scene>
-        <!--View Controller-->
+        <!--Edit Instruction View Controller-->
         <scene sceneID="xkR-U5-Tfc">
             <objects>
-                <viewController storyboardIdentifier="EditDeleteInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vBn-9K-opP" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditDeleteInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vBn-9K-opP" customClass="EditInstructionViewController" customModule="_6_MVP_CVC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QMl-bP-cec">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,10 +207,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="547"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editDeleteInstruction1" translatesAutoresizingMaskIntoConstraints="NO" id="6lW-Dz-OKU">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="263.5"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="editDeleteInstruction2" translatesAutoresizingMaskIntoConstraints="NO" id="NVE-cB-D3G">
-                                        <rect key="frame" x="0.0" y="283.5" width="375" height="263.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -224,15 +221,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LWS-3K-juf"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="6lW-Dz-OKU" id="Hsd-Q4-tFm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ljd-fF-kCK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-202.40000000000001" y="2181.8590704647677"/>
         </scene>
-        <!--View Controller-->
+        <!--Favorite Instruction View Controller-->
         <scene sceneID="8Wp-iG-qFI">
             <objects>
-                <viewController storyboardIdentifier="FavoriteInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0gY-Hm-4i5" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteInstructionView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0gY-Hm-4i5" customClass="FavoriteInstructionViewController" customModule="_6_MVP_CVC" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X6g-jU-lAI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,10 +253,7 @@
                                 <rect key="frame" x="0.0" y="70" width="375" height="547"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="favoriteInstruction" translatesAutoresizingMaskIntoConstraints="NO" id="y7H-oN-zze">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="263.5"/>
-                                    </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2LW-UN-42h">
-                                        <rect key="frame" x="0.0" y="283.5" width="375" height="263.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="547"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -273,6 +270,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xmO-de-oa0"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="y7H-oN-zze" id="2M4-gh-E4d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UhE-jU-S9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -466,10 +466,8 @@
     </scenes>
     <resources>
         <image name="FullListIcon" width="25" height="25"/>
-        <image name="addInsrtuction2" width="637" height="1134"/>
         <image name="addInstruction1" width="637" height="1134"/>
         <image name="editDeleteInstruction1" width="637" height="1134"/>
-        <image name="editDeleteInstruction2" width="637" height="1134"/>
         <image name="favoriteInstruction" width="637" height="1134"/>
         <image name="settingsTabIcon" width="25" height="25"/>
     </resources>
