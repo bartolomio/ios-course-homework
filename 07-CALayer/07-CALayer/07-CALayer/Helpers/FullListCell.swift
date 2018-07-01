@@ -24,7 +24,6 @@ class FullListCell: UITableViewCell {
         cellCheckButton.addTarget(self, action: #selector(onStarClicked), for: .touchUpInside)
         accessoryView = cellCheckButton
         self.imageView?.image = #imageLiteral(resourceName: "photo-camera")
-        self.imageView?.layer.cornerRadius = 100.0
         self.imageView?.backgroundColor = .red
         self.imageView?.contentMode = .scaleAspectFill
         self.imageView?.clipsToBounds = true
