@@ -23,11 +23,6 @@ class FullListCell: UITableViewCell {
         cellCheckButton.frame = CGRect(x: 0, y: 0, width: self.frame.width / 5.0 , height: self.frame.height)
         cellCheckButton.addTarget(self, action: #selector(onStarClicked), for: .touchUpInside)
         accessoryView = cellCheckButton
-//        self.imageView?.image = #imageLiteral(resourceName: "photo-camera")
-//        self.imageView?.layer.cornerRadius = 100.0
-//        self.imageView?.backgroundColor = .red
-//        self.imageView?.contentMode = .scaleAspectFill
-//        self.imageView?.clipsToBounds = true
     }
     
     @objc func onStarClicked(){

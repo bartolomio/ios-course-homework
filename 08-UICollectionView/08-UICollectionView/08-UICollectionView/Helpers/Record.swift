@@ -31,7 +31,7 @@ class Record {
     
     var favorite : Bool = false
     
-    var image: UIImage = #imageLiteral(resourceName: "photo-camera")
+    var image: UIImage? = nil
     
     init(name: String? = nil, text: String? = nil, tags: String? = nil) {
         self.date = Date()

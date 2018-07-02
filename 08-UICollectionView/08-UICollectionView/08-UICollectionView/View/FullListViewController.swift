@@ -84,7 +84,12 @@ extension FullListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.translatesAutoresizingMaskIntoConstraints = false
         cell.textLabel?.numberOfLines = 4
         cell.textLabel?.text = record.description()
-        cell.imageView?.image = record.image
+        if record.image == nil {
+            cell.imageView?.image = #imageLiteral(resourceName: "photo-camera")
+        } else {
+            cell.imageView?.image = record.image
+            cell.imageView?.layer.cornerRadius = 100
+        }
         cell.imageView?.clipsToBounds = true
         return cell
     }

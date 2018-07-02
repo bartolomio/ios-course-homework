@@ -15,11 +15,13 @@ class ActionViewController: UIViewController,UIImagePickerControllerDelegate, UI
     var name: String? = nil
     var tags: String? = nil
     var text: String? = nil
+    var image: UIImage? = nil
     var oldRecord: Record = Record(name: nil, text: nil, tags: nil)
     var action: Action = Action.no_Action
     var deleteButtonHiden: Bool = true
     var deleteButtonEnabled: Bool = false
     let imagePicker = UIImagePickerController()
+    var imageChanged: Bool = false
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var tagsTextField: UITextField!
@@ -36,7 +38,11 @@ class ActionViewController: UIViewController,UIImagePickerControllerDelegate, UI
         nameTextField.text = oldRecord.name
         tagsTextField.text = oldRecord.tagsAsString()
         textTextField.text = oldRecord.text
-        photoImageView.image = oldRecord.image
+        if oldRecord.image == nil {
+            photoImageView.image = #imageLiteral(resourceName: "photo-camera")
+        } else {
+            photoImageView.image = oldRecord.image
+        }
         deleteButton.isHidden = deleteButtonHiden
         deleteButton.isEnabled = deleteButtonEnabled
         
@@ -107,6 +113,7 @@ class ActionViewController: UIViewController,UIImagePickerControllerDelegate, UI
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         self.photoImageView.image = chosenImage
+        self.imageChanged = true
         dismiss(animated:true, completion: nil)
     }
     
@@ -126,16 +133,22 @@ class ActionViewController: UIViewController,UIImagePickerControllerDelegate, UI
         } else {
             tags = nil
         }
+        if self.imageChanged {
+            image = photoImageView.image!
+            print ("not default")
+        } else {
+            image = nil
+        }
         if action == Action.add_Record {
             let newRecord = Record(name: name, text: text, tags: tags)
-            newRecord.image = self.photoImageView.image!
+            newRecord.image = image
             action.performAction(delegate: delegate, record: newRecord)
             
         } else if action == Action.edit_Record {
             if (text != oldRecord.text) ||
                (name != oldRecord.name) ||
                (tags != oldRecord.tagsAsString()) ||
-               (photoImageView.image != oldRecord.image) {
+               self.imageChanged {
                 oldRecord.name = name
                 oldRecord.text = text
                 if let _: String = tags {
