@@ -30,6 +30,8 @@ class FullListViewController: UIViewController {
         fullListTableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name(rawValue: "record_edited"), object: nil)
+        
+        fullListTableView.register([FullListTableViewCell.reuseIdentifier])
 
     }
     
@@ -76,22 +78,26 @@ extension FullListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let record = RecordHandler.shared.records[indexPath.row]
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! FullListCell
-        cell.viewController = self
-        cell.translatesAutoresizingMaskIntoConstraints = false
-        cell.textLabel?.numberOfLines = 4
-        cell.textLabel?.text = record.description()
-        if record.image == nil {
-            cell.imageView?.image = #imageLiteral(resourceName: "photo-camera")
-        } else {
-            cell.imageView?.image = record.image
-            cell.imageView?.layer.cornerRadius = 100
-        }
-        cell.imageView?.clipsToBounds = true
+        let cell = tableView.dequeueReusableCell(withIdentifier: FullListTableViewCell.reuseIdentifier, for: indexPath) as! FullListTableViewCell
+        cell.set(with: record)
+        
         return cell
+        
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! FullListCell
+//        cell.viewController = self
+//        cell.translatesAutoresizingMaskIntoConstraints = false
+//        cell.textLabel?.numberOfLines = 4
+//        cell.textLabel?.text = record.description()
+//        if record.image == nil {
+//            cell.imageView?.image = #imageLiteral(resourceName: "photo-camera")
+//        } else {
+//            cell.imageView?.image = record.image
+//            cell.imageView?.layer.cornerRadius = 100
+//        }
+//        cell.imageView?.clipsToBounds = true
+//        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -100,7 +106,7 @@ extension FullListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.frame.height / 3
+        return tableView.frame.height / 8
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {

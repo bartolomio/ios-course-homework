@@ -25,6 +25,10 @@
 		10E6E76820C7213C00E0E99D /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6E76620C7213C00E0E99D /* ActionViewController.swift */; };
 		10E6E76C20C721E800E0E99D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6E76A20C721E800E0E99D /* Action.swift */; };
 		10E6E76D20C721E800E0E99D /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6E76B20C721E800E0E99D /* Record.swift */; };
+		55A91CF820EAD07100640780 /* FullListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A91CF620EAD07100640780 /* FullListTableViewCell.swift */; };
+		55A91CF920EAD07100640780 /* FullListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A91CF720EAD07100640780 /* FullListTableViewCell.xib */; };
+		55A91CFB20EAD21100640780 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A91CFA20EAD21100640780 /* UITableView+Reusable.swift */; };
+		55A91D0020EAD2AD00640780 /* UITableViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A91CFF20EAD2AD00640780 /* UITableViewCell+ReuseIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		10E6E76620C7213C00E0E99D /* ActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		10E6E76A20C721E800E0E99D /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		10E6E76B20C721E800E0E99D /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		55A91CF620EAD07100640780 /* FullListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FullListTableViewCell.swift; path = "08-UICollectionView/View/FullListTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		55A91CF720EAD07100640780 /* FullListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FullListTableViewCell.xib; path = "08-UICollectionView/View/FullListTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		55A91CFA20EAD21100640780 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UITableView+Reusable.swift"; path = "Extensions/UITableView+Reusable.swift"; sourceTree = "<group>"; };
+		55A91CFF20EAD2AD00640780 /* UITableViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UITableViewCell+ReuseIdentifier.swift"; path = "Extensions/UITableViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +88,9 @@
 		107AAF7620BB14C000D318BE /* 08-UICollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				55A91CFC20EAD22100640780 /* Extensions */,
+				55A91CFA20EAD21100640780 /* UITableView+Reusable.swift */,
+				55A91CFF20EAD2AD00640780 /* UITableViewCell+ReuseIdentifier.swift */,
 				10E6E76920C721C100E0E99D /* Helpers */,
 				10E6E76420C720CE00E0E99D /* Controller */,
 				10E6E76320C720C100E0E99D /* View */,
@@ -138,9 +149,18 @@
 				10E6E76A20C721E800E0E99D /* Action.swift */,
 				10E6E76B20C721E800E0E99D /* Record.swift */,
 				10DEB2D020D07611007AD611 /* FullListCell.swift */,
+				55A91CF620EAD07100640780 /* FullListTableViewCell.swift */,
+				55A91CF720EAD07100640780 /* FullListTableViewCell.xib */,
 				1069944D20EAC33F00E8236B /* Settings.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		55A91CFC20EAD22100640780 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +221,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55A91CF920EAD07100640780 /* FullListTableViewCell.xib in Resources */,
 				107AAF8220BB14C100D318BE /* LaunchScreen.storyboard in Resources */,
 				107AAF7F20BB14C100D318BE /* Assets.xcassets in Resources */,
 				107AAF7D20BB14C000D318BE /* Main.storyboard in Resources */,
@@ -220,8 +241,11 @@
 				10DE267C20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift in Sources */,
 				105F2FDC20CF19FF00A19E3B /* SettingsViewController.swift in Sources */,
 				10C496D320E8E53400230C33 /* FavoriteInstructionViewController.swift in Sources */,
+				55A91CFB20EAD21100640780 /* UITableView+Reusable.swift in Sources */,
 				10E6E76C20C721E800E0E99D /* Action.swift in Sources */,
 				105F2FD820CF19A900A19E3B /* FullListViewController.swift in Sources */,
+				55A91D0020EAD2AD00640780 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
+				55A91CF820EAD07100640780 /* FullListTableViewCell.swift in Sources */,
 				10DEFA6620D9AFC800C03B43 /* InstructionPageViewController.swift in Sources */,
 				1069944E20EAC33F00E8236B /* Settings.swift in Sources */,
 				105F2FD420CF139500A19E3B /* RecordsHandler.swift in Sources */,
