@@ -108,6 +108,9 @@ extension FullListViewController: UITableViewDelegate, UITableViewDataSource {
         return UISwipeActionsConfiguration(actions: [favorite])
     }
     
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40.0
+    }
     func favoriteAction (at indexPath:IndexPath) -> UIContextualAction{
         let record = RecordHandler.shared.records[indexPath.row]
         let action = UIContextualAction(style: .normal, title: "favorite") { (action, view, completion) in

@@ -14,6 +14,8 @@ class FullListCell: UITableViewCell {
     
     var starColor : UIColor = UIColor.gray
     
+    let customImageView = UIImageView(image: #imageLiteral(resourceName: "addInstruction1"))
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -23,6 +25,16 @@ class FullListCell: UITableViewCell {
         cellCheckButton.frame = CGRect(x: 0, y: 0, width: self.frame.width / 5.0 , height: self.frame.height)
         cellCheckButton.addTarget(self, action: #selector(onStarClicked), for: .touchUpInside)
         accessoryView = cellCheckButton
+        
+        self.customImageView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(customImageView)
+
+        self.customImageView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1.0).isActive = true
+        self.customImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        self.customImageView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.2).isActive = true
+        self.customImageView.clipsToBounds = true
+        self.customImageView.contentMode = .scaleAspectFill
+        
     }
     
     @objc func onStarClicked(){
