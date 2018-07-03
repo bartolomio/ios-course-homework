@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wg6-BC-PZF">
+                            <switch opaque="NO" tag="255" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wg6-BC-PZF">
                                 <rect key="frame" x="20" y="90" width="52" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Gb9-MU-I6I"/>
@@ -452,10 +452,13 @@
                     </view>
                     <connections>
                         <outlet property="deleteButton" destination="LTD-X0-RCH" id="U4N-O3-a8n"/>
+                        <outlet property="nameLabel" destination="bd5-F4-SB3" id="ytH-VB-lv1"/>
                         <outlet property="nameTextField" destination="MRt-tS-wey" id="0kk-Ik-Bye"/>
                         <outlet property="okButton" destination="gj9-e7-uqm" id="Yvi-K8-efj"/>
                         <outlet property="photoImageView" destination="ZXO-59-cjH" id="UFZ-vD-fSG"/>
+                        <outlet property="tagsLabel" destination="vv5-ro-YQF" id="duL-kT-uds"/>
                         <outlet property="tagsTextField" destination="9Q1-Jx-qpd" id="hcQ-ot-Zf0"/>
+                        <outlet property="textLabel" destination="rU9-ly-1wR" id="XcS-9d-5QK"/>
                         <outlet property="textTextField" destination="me4-xN-nbI" id="xKI-m3-fOQ"/>
                     </connections>
                 </viewController>

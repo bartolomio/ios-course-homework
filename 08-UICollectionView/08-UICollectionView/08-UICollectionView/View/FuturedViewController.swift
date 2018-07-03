@@ -21,6 +21,7 @@ class FuturedViewController: UIViewController {
         favoriteTableView.delegate = self
         favoriteTableView.dataSource = self
         
+        Settings.shared.isBlackTheme() ? setTheme(textColor: .white, backgroundColor: .black) : setTheme(textColor: .black, backgroundColor: .white)
         NotificationCenter.default.addObserver(self, selector: #selector(setBlackTheme), name: NSNotification.Name(rawValue: "black_theme"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setWhiteTheme), name: NSNotification.Name(rawValue: "white_theme"), object: nil)
         
@@ -28,18 +29,21 @@ class FuturedViewController: UIViewController {
 
     }
     @objc func setBlackTheme(){
-        self.favoriteTableView.backgroundColor = .black
-        self.cellWhiteColor = false
-        self.favoriteTableView.reloadData()
+        setTheme(textColor: .white, backgroundColor: .black)
     }
-    
     @objc func setWhiteTheme(){
-        self.favoriteTableView.backgroundColor = .white
-        self.cellWhiteColor = true
-        self.favoriteTableView.reloadData()
+        setTheme(textColor: .black, backgroundColor: .white)
     }
     override func viewDidAppear(_ animated: Bool) {
         self.favoriteTableView.reloadData()
+    }
+    
+    func setTheme(textColor: UIColor, backgroundColor: UIColor){
+        let allSubviews = self.view.subviewsRecursive()
+        for view in allSubviews {
+            view.backgroundColor = backgroundColor
+        }
+        self.view.backgroundColor = backgroundColor
     }
 
 }
@@ -55,7 +59,7 @@ extension FuturedViewController: UITableViewDelegate, UITableViewDataSource {
         let record = RecordHandler.shared.favoriteRecords[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: FullListTableViewCell.reuseIdentifier, for: indexPath) as! FullListTableViewCell
-        cell.set(with: record)
+        cell.set(with: record, isBlack: Settings.shared.isBlackTheme())
         
         return cell
     }

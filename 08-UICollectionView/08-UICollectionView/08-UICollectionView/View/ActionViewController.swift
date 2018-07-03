@@ -29,7 +29,9 @@ class ActionViewController: UIViewController,UIImagePickerControllerDelegate, UI
     @IBOutlet weak var okButton: UIButton!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var photoImageView: UIImageView!
-    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var tagsLabel: UILabel!
+    @IBOutlet weak var textLabel: UILabel!
     //MARK: Action View Controller Lifecycle
     
     override func viewDidLoad() {
@@ -60,7 +62,16 @@ class ActionViewController: UIViewController,UIImagePickerControllerDelegate, UI
         self.photoImageView.isUserInteractionEnabled = true
         
         imagePicker.delegate = self
+        Settings.shared.isBlackTheme() ? setTheme(textColor: .white, backgroundColor: .black) : setTheme(textColor: .black, backgroundColor: .white)
+        NotificationCenter.default.addObserver(self, selector: #selector(setBlackTheme), name: NSNotification.Name(rawValue: "black_theme"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setWhiteTheme), name: NSNotification.Name(rawValue: "white_theme"), object: nil)
         
+    }
+    @objc func setBlackTheme(){
+        setTheme(textColor: .white, backgroundColor: .black)
+    }
+    @objc func setWhiteTheme(){
+        setTheme(textColor: .black, backgroundColor: .white)
     }
     
     @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer)
@@ -167,6 +178,26 @@ class ActionViewController: UIViewController,UIImagePickerControllerDelegate, UI
         deleteButton.isHidden = true
         deleteButton.isEnabled = false
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setTheme(textColor: UIColor, backgroundColor: UIColor){
+        let allSubviews = self.view.subviewsRecursive()
+        for view in allSubviews {
+            view.backgroundColor = backgroundColor
+        }
+        self.nameTextField.textColor = textColor
+        self.tagsTextField.textColor = textColor
+        self.textTextField.textColor = textColor
+        self.nameTextField.backgroundColor = (backgroundColor == .black ? .gray : .white)
+        self.tagsTextField.backgroundColor = (backgroundColor == .black ? .gray : .white)
+        self.textTextField.backgroundColor = (backgroundColor == .black ? .gray : .white)
+        self.okButton.titleLabel?.textColor = textColor
+        self.deleteButton.titleLabel?.textColor = textColor
+        self.nameLabel.textColor = textColor
+        self.tagsLabel.textColor = textColor
+        self.textLabel.textColor = textColor
+        self.view.backgroundColor = backgroundColor
+
     }
     
 }

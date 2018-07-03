@@ -31,7 +31,18 @@ class FullListViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name(rawValue: "record_edited"), object: nil)
         
         fullListTableView.register([FullListTableViewCell.reuseIdentifier])
+        
+        Settings.shared.isBlackTheme() ? setTheme(textColor: .white, backgroundColor: .black) : setTheme(textColor: .black, backgroundColor: .white)
+        NotificationCenter.default.addObserver(self, selector: #selector(setBlackTheme), name: NSNotification.Name(rawValue: "black_theme"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(setWhiteTheme), name: NSNotification.Name(rawValue: "white_theme"), object: nil)
 
+    }
+    
+    @objc func setBlackTheme(){
+        setTheme(textColor: .white, backgroundColor: .black)
+    }
+    @objc func setWhiteTheme(){
+        setTheme(textColor: .black, backgroundColor: .white)
     }
     
     @objc func reloadTableView(notification: Notification) {
@@ -72,7 +83,7 @@ extension FullListViewController: UITableViewDelegate, UITableViewDataSource {
         let record = RecordHandler.shared.records[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: FullListTableViewCell.reuseIdentifier, for: indexPath) as! FullListTableViewCell
-        cell.set(with: record)
+        cell.set(with: record, isBlack: Settings.shared.isBlackTheme())
         
         return cell
     }
@@ -103,6 +114,15 @@ extension FullListViewController: UITableViewDelegate, UITableViewDataSource {
         action.backgroundColor = record.favorite ? .orange : .gray
         return action
     }
+    
+    func setTheme(textColor: UIColor, backgroundColor: UIColor){
+        let allSubviews = self.view.subviewsRecursive()
+        for view in allSubviews {
+            view.backgroundColor = backgroundColor
+        }
+        self.view.backgroundColor = backgroundColor
+    }
+
     
 }
 
