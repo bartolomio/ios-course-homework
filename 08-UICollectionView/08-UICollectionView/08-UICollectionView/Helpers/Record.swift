@@ -86,6 +86,14 @@ class Record {
         }
     }
     
+    func datetoString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .none
+        dateFormatter.locale = Locale(identifier: "uk_UA")
+        return dateFormatter.string(from: self.date)
+    }
+    
     func description() -> String {
         //Add data to result string
         let dateFormatter = DateFormatter()
