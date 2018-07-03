@@ -20,7 +20,6 @@
 		10C496D120E8E52500230C33 /* EditInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C496D020E8E52500230C33 /* EditInstructionViewController.swift */; };
 		10C496D320E8E53400230C33 /* FavoriteInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */; };
 		10DE267C20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE267B20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift */; };
-		10DEB2D120D07611007AD611 /* FullListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEB2D020D07611007AD611 /* FullListCell.swift */; };
 		10DEFA6620D9AFC800C03B43 /* InstructionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEFA6520D9AFC800C03B43 /* InstructionPageViewController.swift */; };
 		10E6E76820C7213C00E0E99D /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6E76620C7213C00E0E99D /* ActionViewController.swift */; };
 		10E6E76C20C721E800E0E99D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6E76A20C721E800E0E99D /* Action.swift */; };
@@ -47,7 +46,6 @@
 		10C496D020E8E52500230C33 /* EditInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInstructionViewController.swift; sourceTree = "<group>"; };
 		10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInstructionViewController.swift; sourceTree = "<group>"; };
 		10DE267B20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddScreenViewControllerDelegate.swift; sourceTree = "<group>"; };
-		10DEB2D020D07611007AD611 /* FullListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullListCell.swift; sourceTree = "<group>"; };
 		10DEFA6520D9AFC800C03B43 /* InstructionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPageViewController.swift; sourceTree = "<group>"; };
 		10E6E76620C7213C00E0E99D /* ActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		10E6E76A20C721E800E0E99D /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 			children = (
 				10E6E76A20C721E800E0E99D /* Action.swift */,
 				10E6E76B20C721E800E0E99D /* Record.swift */,
-				10DEB2D020D07611007AD611 /* FullListCell.swift */,
 				55A91CF620EAD07100640780 /* FullListTableViewCell.swift */,
 				55A91CF720EAD07100640780 /* FullListTableViewCell.xib */,
 				1069944D20EAC33F00E8236B /* Settings.swift */,
@@ -249,7 +246,6 @@
 				10DEFA6620D9AFC800C03B43 /* InstructionPageViewController.swift in Sources */,
 				1069944E20EAC33F00E8236B /* Settings.swift in Sources */,
 				105F2FD420CF139500A19E3B /* RecordsHandler.swift in Sources */,
-				10DEB2D120D07611007AD611 /* FullListCell.swift in Sources */,
 				10E6E76D20C721E800E0E99D /* Record.swift in Sources */,
 				105F2FDA20CF19E000A19E3B /* FuturedViewController.swift in Sources */,
 				10C496CF20E8E51200230C33 /* AddInstructionViewController.swift in Sources */,

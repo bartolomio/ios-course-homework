@@ -67,7 +67,6 @@ extension InstructionPageViewController: UIPageViewControllerDataSource {
         let orderedViewControllersCount = orderedViewControllers.count
         
         if nextIndex >= orderedViewControllersCount {
-            //performSegue(withIdentifier: "toMainPage", sender: self)
             return nil
         }
         

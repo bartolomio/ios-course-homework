@@ -19,7 +19,6 @@ class FullListViewController: UIViewController {
         
         self.fullListTableView.delegate = self
         self.fullListTableView.dataSource = self
-        self.fullListTableView.register(FullListCell.self, forCellReuseIdentifier: "cell")
         
         self.view.addSubview(fullListTableView)
         self.fullListTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -47,14 +46,6 @@ class FullListViewController: UIViewController {
         self.performSegue(withIdentifier: "toActionView", sender: self)
     }
     
-    func handeFavoriteClick (cell: FullListCell){
-        let indexPath = fullListTableView.indexPath(for: cell)
-        if let _: IndexPath = indexPath {
-            RecordHandler.shared.records[indexPath!.row].favorite = !RecordHandler.shared.records[indexPath!.row].favorite
-            cell.accessoryView?.tintColor = RecordHandler.shared.records[indexPath!.row].favorite ? .orange : .gray
-        }
-        
-    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let actionViewController = segue.destination as? ActionViewController {
             actionViewController.delegate = self
@@ -84,20 +75,6 @@ extension FullListViewController: UITableViewDelegate, UITableViewDataSource {
         cell.set(with: record)
         
         return cell
-        
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! FullListCell
-//        cell.viewController = self
-//        cell.translatesAutoresizingMaskIntoConstraints = false
-//        cell.textLabel?.numberOfLines = 4
-//        cell.textLabel?.text = record.description()
-//        if record.image == nil {
-//            cell.imageView?.image = #imageLiteral(resourceName: "photo-camera")
-//        } else {
-//            cell.imageView?.image = record.image
-//            cell.imageView?.layer.cornerRadius = 100
-//        }
-//        cell.imageView?.clipsToBounds = true
-//        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -54,22 +54,6 @@ extension FuturedViewController: UITableViewDelegate, UITableViewDataSource {
         
         let record = RecordHandler.shared.favoriteRecords[indexPath.row]
         
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
-//        cell.translatesAutoresizingMaskIntoConstraints = false
-//        cell.textLabel?.numberOfLines = 4
-//        cell.textLabel?.text = record.description()
-//        cell.backgroundColor = cellWhiteColor ? .white : .black
-//        cell.textLabel?.textColor = cellWhiteColor ? .black : .white
-//        if record.image == nil {
-//            cell.imageView?.image = #imageLiteral(resourceName: "photo-camera")
-//        } else {
-//            cell.imageView?.image = record.image
-//            cell.imageView?.layer.cornerRadius = 100.0
-//        }
-//        cell.imageView?.backgroundColor = .red
-//        cell.imageView?.clipsToBounds = true
-        //cell.imageView?.contentMode = .scaleToFill
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: FullListTableViewCell.reuseIdentifier, for: indexPath) as! FullListTableViewCell
         cell.set(with: record)
         
