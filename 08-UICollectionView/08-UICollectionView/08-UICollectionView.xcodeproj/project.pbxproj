@@ -20,6 +20,11 @@
 		10C496CF20E8E51200230C33 /* AddInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C496CE20E8E51200230C33 /* AddInstructionViewController.swift */; };
 		10C496D120E8E52500230C33 /* EditInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C496D020E8E52500230C33 /* EditInstructionViewController.swift */; };
 		10C496D320E8E53400230C33 /* FavoriteInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */; };
+		10D92B5120F5567200C7E436 /* CollectionViewMyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D92B4F20F5567200C7E436 /* CollectionViewMyCell.swift */; };
+		10D92B5220F5567200C7E436 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10D92B5020F5567200C7E436 /* CollectionViewCell.xib */; };
+		10D92B5620F5617000C7E436 /* UICollectionViewCell+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D92B5520F5617000C7E436 /* UICollectionViewCell+ReuseIdentifier.swift */; };
+		10D92B5820F561C500C7E436 /* UICollectionView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D92B5720F561C500C7E436 /* UICollectionView+Reusable.swift */; };
+		10D92B5A20F5624600C7E436 /* CollectiooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10D92B5920F5624600C7E436 /* CollectiooViewController.swift */; };
 		10DE267C20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DE267B20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift */; };
 		10DEFA6620D9AFC800C03B43 /* InstructionPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10DEFA6520D9AFC800C03B43 /* InstructionPageViewController.swift */; };
 		10E6E76820C7213C00E0E99D /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6E76620C7213C00E0E99D /* ActionViewController.swift */; };
@@ -47,6 +52,11 @@
 		10C496CE20E8E51200230C33 /* AddInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInstructionViewController.swift; sourceTree = "<group>"; };
 		10C496D020E8E52500230C33 /* EditInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInstructionViewController.swift; sourceTree = "<group>"; };
 		10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInstructionViewController.swift; sourceTree = "<group>"; };
+		10D92B4F20F5567200C7E436 /* CollectionViewMyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewMyCell.swift; sourceTree = "<group>"; };
+		10D92B5020F5567200C7E436 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		10D92B5520F5617000C7E436 /* UICollectionViewCell+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		10D92B5720F561C500C7E436 /* UICollectionView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Reusable.swift"; sourceTree = "<group>"; };
+		10D92B5920F5624600C7E436 /* CollectiooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectiooViewController.swift; sourceTree = "<group>"; };
 		10DE267B20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddScreenViewControllerDelegate.swift; sourceTree = "<group>"; };
 		10DEFA6520D9AFC800C03B43 /* InstructionPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionPageViewController.swift; sourceTree = "<group>"; };
 		10E6E76620C7213C00E0E99D /* ActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +140,7 @@
 				10C496CE20E8E51200230C33 /* AddInstructionViewController.swift */,
 				10C496D020E8E52500230C33 /* EditInstructionViewController.swift */,
 				10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */,
+				10D92B5920F5624600C7E436 /* CollectiooViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -149,6 +160,8 @@
 				55A91CF620EAD07100640780 /* FullListTableViewCell.swift */,
 				55A91CF720EAD07100640780 /* FullListTableViewCell.xib */,
 				1069944D20EAC33F00E8236B /* Settings.swift */,
+				10D92B4F20F5567200C7E436 /* CollectionViewMyCell.swift */,
+				10D92B5020F5567200C7E436 /* CollectionViewCell.xib */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -159,6 +172,8 @@
 				10C1259320EC240B0061B53F /* UIViewExtension.swift */,
 				55A91CFA20EAD21100640780 /* UITableView+Reusable.swift */,
 				55A91CFF20EAD2AD00640780 /* UITableViewCell+ReuseIdentifier.swift */,
+				10D92B5520F5617000C7E436 /* UICollectionViewCell+ReuseIdentifier.swift */,
+				10D92B5720F561C500C7E436 /* UICollectionView+Reusable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -225,6 +240,7 @@
 				107AAF8220BB14C100D318BE /* LaunchScreen.storyboard in Resources */,
 				107AAF7F20BB14C100D318BE /* Assets.xcassets in Resources */,
 				107AAF7D20BB14C000D318BE /* Main.storyboard in Resources */,
+				10D92B5220F5567200C7E436 /* CollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,9 +260,13 @@
 				10C1259420EC240B0061B53F /* UIViewExtension.swift in Sources */,
 				55A91CFB20EAD21100640780 /* UITableView+Reusable.swift in Sources */,
 				10E6E76C20C721E800E0E99D /* Action.swift in Sources */,
+				10D92B5A20F5624600C7E436 /* CollectiooViewController.swift in Sources */,
 				105F2FD820CF19A900A19E3B /* FullListViewController.swift in Sources */,
+				10D92B5120F5567200C7E436 /* CollectionViewMyCell.swift in Sources */,
 				55A91D0020EAD2AD00640780 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				55A91CF820EAD07100640780 /* FullListTableViewCell.swift in Sources */,
+				10D92B5820F561C500C7E436 /* UICollectionView+Reusable.swift in Sources */,
+				10D92B5620F5617000C7E436 /* UICollectionViewCell+ReuseIdentifier.swift in Sources */,
 				10DEFA6620D9AFC800C03B43 /* InstructionPageViewController.swift in Sources */,
 				1069944E20EAC33F00E8236B /* Settings.swift in Sources */,
 				105F2FD420CF139500A19E3B /* RecordsHandler.swift in Sources */,
@@ -399,6 +419,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N53MGX7VRZ;
 				INFOPLIST_FILE = "$(SRCROOT)/08-UICollectionView/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -417,6 +438,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N53MGX7VRZ;
 				INFOPLIST_FILE = "$(SRCROOT)/08-UICollectionView/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
