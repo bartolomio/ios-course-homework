@@ -11,6 +11,7 @@ import Foundation
 final class Settings{
     static let shared = Settings()
     private var blackThemeIsOn = false
+    private var collectionViewIsOn = false
     private init() {}
     func blackTheme(){
         self.blackThemeIsOn = true
@@ -20,7 +21,19 @@ final class Settings{
         self.blackThemeIsOn = false
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "white_theme"), object: nil)
     }
+    func collectionView(){
+        self.collectionViewIsOn = true
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadView"), object: nil)
+    }
+    func tableView(){
+        self.collectionViewIsOn = false
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "reloadView"), object: nil)
+    }
     func isBlackTheme() -> Bool {
         return blackThemeIsOn
+    }
+    
+    func isCollectionView() -> Bool {
+        return collectionViewIsOn
     }
 }

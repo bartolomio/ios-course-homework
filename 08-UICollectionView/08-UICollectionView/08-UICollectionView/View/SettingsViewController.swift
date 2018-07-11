@@ -15,6 +15,8 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var blackThemeLabel: UILabel!
     @IBOutlet weak var settingsLable: UILabel!
     @IBOutlet weak var blackThemeSwitcher: UISwitch!
+    @IBOutlet weak var gridViewSwitcher: UISwitch!
+    @IBOutlet weak var gridViewLabel: UILabel!
     
     //MARK: Settings View Controller Lifecycle
     override func viewDidLoad() {
@@ -43,20 +45,16 @@ class SettingsViewController: UIViewController {
         self.blackThemeLabel.textColor = textColor
         self.blackThemeSwitcher.onTintColor = .green
         self.blackThemeSwitcher.tintColor = .gray
+        self.gridViewLabel.textColor = textColor
+        self.gridViewSwitcher.onTintColor = .green
+        self.gridViewSwitcher.tintColor = .gray
         
+    }
+    @IBAction func onGridViewSwitcherTapped(_ sender: Any) {
+        gridViewSwitcher.isOn ? Settings.shared.collectionView() : Settings.shared.tableView()
     }
     
     @IBAction func onBlackThemeSwitcherTapped(_ sender: Any) {
-        
-//        self.view.backgroundColor = blackThemeSwitcher.isOn ? .black : .white
-//        self.blackThemeLabel.textColor = blackThemeSwitcher.isOn ? .white : .black
-//        self.settingsLable.textColor = blackThemeSwitcher.isOn ? .white : .black
-//        if blackThemeSwitcher.isOn {
-//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "black_theme"), object: nil)
-//        } else {
-//            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "white_theme"), object: nil)
-//        }
-        
         blackThemeSwitcher.isOn ? Settings.shared.blackTheme() : Settings.shared.whiteTheme()
     }
 }

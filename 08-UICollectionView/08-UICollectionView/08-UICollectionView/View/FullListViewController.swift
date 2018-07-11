@@ -11,31 +11,60 @@ import UIKit
 class FullListViewController: UIViewController {
 
     var fullListTableView: UITableView = UITableView()
+    var fullListCollectionView: UICollectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: 10, height: 10), collectionViewLayout: UICollectionViewFlowLayout())
     var action: Action = Action.no_Action
     
     //MARK: Full List View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.fullListTableView.delegate = self
-        self.fullListTableView.dataSource = self
-        
-        self.view.addSubview(fullListTableView)
-        self.fullListTableView.translatesAutoresizingMaskIntoConstraints = false
-        
-        fullListTableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
-        fullListTableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-        fullListTableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-        fullListTableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableView), name: NSNotification.Name(rawValue: "record_edited"), object: nil)
-        
-        fullListTableView.register([FullListTableViewCell.reuseIdentifier])
+
+        prepareView()
         
         Settings.shared.isBlackTheme() ? setTheme(textColor: .white, backgroundColor: .black) : setTheme(textColor: .black, backgroundColor: .white)
         NotificationCenter.default.addObserver(self, selector: #selector(setBlackTheme), name: NSNotification.Name(rawValue: "black_theme"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(setWhiteTheme), name: NSNotification.Name(rawValue: "white_theme"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadData), name: NSNotification.Name(rawValue: "record_edited"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadView), name: NSNotification.Name(rawValue: "reloadView"), object: nil)
 
+    }
+    
+    func prepareView(){
+        if Settings.shared.isCollectionView() {
+            self.fullListTableView.removeFromSuperview()
+            
+            self.fullListCollectionView.delegate = self
+            self.fullListCollectionView.dataSource = self
+            self.fullListCollectionView.register([CollectionViewMyCell.reuseIdentifier])
+            self.view.addSubview(fullListCollectionView)
+            self.fullListCollectionView.translatesAutoresizingMaskIntoConstraints = false
+            
+            fullListCollectionView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+            fullListCollectionView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+            fullListCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+            fullListCollectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            
+            fullListCollectionView.reloadData()
+            
+        } else {
+            self.fullListCollectionView.removeFromSuperview()
+            
+            self.fullListTableView.delegate = self
+            self.fullListTableView.dataSource = self
+            fullListTableView.register([FullListTableViewCell.reuseIdentifier])
+            self.view.addSubview(fullListTableView)
+            self.fullListTableView.translatesAutoresizingMaskIntoConstraints = false
+            
+            fullListTableView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+            fullListTableView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+            fullListTableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+            fullListTableView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+            
+            
+            fullListTableView.reloadData()
+        }
+    }
+    @objc func reloadView(){
+        prepareView()
     }
     
     @objc func setBlackTheme(){
@@ -45,10 +74,14 @@ class FullListViewController: UIViewController {
         setTheme(textColor: .black, backgroundColor: .white)
     }
     
-    @objc func reloadTableView(notification: Notification) {
+    @objc func reloadData(notification: Notification) {
         if notification.name.rawValue == "record_edited" {
             print("[LOG MESSAGE] Notification received")
-            self.fullListTableView.reloadData()
+            if Settings.shared.isCollectionView(){
+                self.fullListCollectionView.reloadData()
+            } else {
+                self.fullListTableView.reloadData()
+            }
         }
     }
     
@@ -131,10 +164,15 @@ extension FullListViewController: ActionViewControllerDelegate{
     
     func addRecord(record: Record) {
         RecordHandler.shared.records.append(record)
-        self.fullListTableView.beginUpdates()
-        let indexPath = IndexPath(row: RecordHandler.shared.records.count - 1, section: 0)
-        self.fullListTableView.insertRows(at: [indexPath], with: .automatic)
-        self.fullListTableView.endUpdates()
+        if Settings.shared.isCollectionView() {
+            self.fullListCollectionView.reloadData()
+            
+        } else {
+            self.fullListTableView.beginUpdates()
+            let indexPath = IndexPath(row: RecordHandler.shared.records.count - 1, section: 0)
+            self.fullListTableView.insertRows(at: [indexPath], with: .automatic)
+            self.fullListTableView.endUpdates()
+        }
     }
     
     func deleteRecord() {
@@ -142,5 +180,32 @@ extension FullListViewController: ActionViewControllerDelegate{
             RecordHandler.shared.records.remove(at: selectedRow)
         }
         self.fullListTableView.reloadData()
+    }
+}
+//MARK: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout conforming
+
+extension FullListViewController: UICollectionViewDelegate,UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return RecordHandler.shared.records.count
+        //return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let record = RecordHandler.shared.records[indexPath.row]
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CollectionViewMyCell.reuseIdentifier, for: indexPath) as! CollectionViewMyCell
+        cell.set(with: record, isBlack: Settings.shared.isBlackTheme())
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let cellSize = CGSize(width: self.fullListCollectionView.frame.width/2.5, height: self.fullListCollectionView.frame.height/5)
+        return cellSize
     }
 }
