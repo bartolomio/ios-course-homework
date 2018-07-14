@@ -14,6 +14,8 @@ class AddInstructionViewController: UIViewController {
     //MARK: AddInstruction View Controller Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       
 
         let animatingImages = [#imageLiteral(resourceName: "addInstruction1"),#imageLiteral(resourceName: "addInsrtuction2")]
         self.imageView.animationImages = animatingImages

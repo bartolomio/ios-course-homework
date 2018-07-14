@@ -34,6 +34,7 @@ class FullListViewController: UIViewController {
             
             self.fullListCollectionView.delegate = self
             self.fullListCollectionView.dataSource = self
+            self.fullListCollectionView.backgroundColor = .white
             self.fullListCollectionView.register([CollectionViewMyCell.reuseIdentifier])
             self.view.addSubview(fullListCollectionView)
             self.fullListCollectionView.translatesAutoresizingMaskIntoConstraints = false

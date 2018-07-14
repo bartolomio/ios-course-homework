@@ -24,6 +24,12 @@ class InstructionPageViewController: UIPageViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if  Settings.shared.doSkipInto() {
+            self.performSegue(withIdentifier: "skipIntro", sender: self)
+        }
+    }
+    
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.newColoredViewController(header: "Add"),
                 self.newColoredViewController(header: "EditDelete"),

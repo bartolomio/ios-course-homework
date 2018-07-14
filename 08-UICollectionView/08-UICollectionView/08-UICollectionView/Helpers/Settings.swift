@@ -12,6 +12,7 @@ final class Settings{
     static let shared = Settings()
     private var blackThemeIsOn = false
     private var collectionViewIsOn = false
+    private var skipIntro = true
     private init() {}
     func blackTheme(){
         self.blackThemeIsOn = true
@@ -35,5 +36,9 @@ final class Settings{
     
     func isCollectionView() -> Bool {
         return collectionViewIsOn
+    }
+    
+    func doSkipInto() -> Bool {
+        return skipIntro
     }
 }

@@ -126,7 +126,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rfa-V2-Zcb">
-                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -179,10 +179,13 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="JaZ-sL-3UQ" customClass="InstructionPageViewController" customModule="_8_UICollectionView" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="tEe-gE-2e5" kind="show" identifier="skipIntro" id="ZBC-Zc-mfs"/>
+                    </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuc-zI-VsU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-318" y="1488"/>
+            <point key="canvasLocation" x="-202" y="1388"/>
         </scene>
         <!--Add Instruction View Controller-->
         <scene sceneID="dPJ-fz-Agg">
@@ -269,7 +272,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="OK"/>
                                 <connections>
-                                    <segue destination="tEe-gE-2e5" kind="show" id="PMZ-iG-Bj5"/>
+                                    <segue destination="tEe-gE-2e5" kind="show" identifier="" id="PMZ-iG-Bj5"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2T2-VX-ESG">
@@ -517,4 +520,7 @@
         <image name="photo-camera" width="275" height="275"/>
         <image name="settingsTabIcon" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZBC-Zc-mfs"/>
+    </inferredMetricsTieBreakers>
 </document>
