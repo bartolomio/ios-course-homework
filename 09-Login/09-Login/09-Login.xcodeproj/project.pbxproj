@@ -17,6 +17,8 @@
 		107AAF7F20BB14C100D318BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 107AAF7E20BB14C100D318BE /* Assets.xcassets */; };
 		107AAF8220BB14C100D318BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 107AAF8020BB14C100D318BE /* LaunchScreen.storyboard */; };
 		10C1259420EC240B0061B53F /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C1259320EC240B0061B53F /* UIViewExtension.swift */; };
+		10C33E9520FA8565005C247D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C33E9420FA8565005C247D /* User.swift */; };
+		10C33E9720FA9C6F005C247D /* CreateNewUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C33E9620FA9C6F005C247D /* CreateNewUserViewController.swift */; };
 		10C496CF20E8E51200230C33 /* AddInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C496CE20E8E51200230C33 /* AddInstructionViewController.swift */; };
 		10C496D120E8E52500230C33 /* EditInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C496D020E8E52500230C33 /* EditInstructionViewController.swift */; };
 		10C496D320E8E53400230C33 /* FavoriteInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */; };
@@ -48,6 +50,8 @@
 		107AAF8120BB14C100D318BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		107AAF8320BB14C100D318BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10C1259320EC240B0061B53F /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		10C33E9420FA8565005C247D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		10C33E9620FA9C6F005C247D /* CreateNewUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewUserViewController.swift; sourceTree = "<group>"; };
 		10C496CE20E8E51200230C33 /* AddInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInstructionViewController.swift; sourceTree = "<group>"; };
 		10C496D020E8E52500230C33 /* EditInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditInstructionViewController.swift; sourceTree = "<group>"; };
 		10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteInstructionViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				10C496CE20E8E51200230C33 /* AddInstructionViewController.swift */,
 				10C496D020E8E52500230C33 /* EditInstructionViewController.swift */,
 				10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */,
+				10C33E9620FA9C6F005C247D /* CreateNewUserViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				1069944D20EAC33F00E8236B /* Settings.swift */,
 				10D92B4F20F5567200C7E436 /* CollectionViewMyCell.swift */,
 				10D92B5020F5567200C7E436 /* CollectionViewMyCell.xib */,
+				10C33E9420FA8565005C247D /* User.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -249,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10C496D120E8E52500230C33 /* EditInstructionViewController.swift in Sources */,
+				10C33E9720FA9C6F005C247D /* CreateNewUserViewController.swift in Sources */,
 				10E6E76820C7213C00E0E99D /* ActionViewController.swift in Sources */,
 				107AAF7820BB14C000D318BE /* AppDelegate.swift in Sources */,
 				10DE267C20C0AE6A00A2515E /* AddScreenViewControllerDelegate.swift in Sources */,
@@ -258,6 +265,7 @@
 				55A91CFB20EAD21100640780 /* UITableView+Reusable.swift in Sources */,
 				10E6E76C20C721E800E0E99D /* Action.swift in Sources */,
 				105F2FD820CF19A900A19E3B /* FullListViewController.swift in Sources */,
+				10C33E9520FA8565005C247D /* User.swift in Sources */,
 				10D92B5120F5567200C7E436 /* CollectionViewMyCell.swift in Sources */,
 				55A91D0020EAD2AD00640780 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				55A91CF820EAD07100640780 /* FullListTableViewCell.swift in Sources */,
