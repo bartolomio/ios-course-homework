@@ -14,7 +14,7 @@ class CreateNewUserViewController: UIViewController {
     @IBOutlet weak var secondNameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var genderPicker: UIPickerView!
-    
+    @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var agePicker: UIPickerView!
     let gender:[String] = ["male","female","it"]
     let myRange: CountableRange = 1..<101
@@ -42,9 +42,24 @@ class CreateNewUserViewController: UIViewController {
             let alert  = UIAlertController(title: "Warning", message: "Please, enter your email", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true, completion: nil)
+        } else if passwordField.text == "" {
+            let alert  = UIAlertController(title: "Warning", message: "Please, enter your password", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
         } else {
-            let newUser = User(name: nameField.text!, lastName: secondNameField.text!, age: agePicker.selectedRow(inComponent: 0) + 1, email: emailField.text!, gender: gender[genderPicker.selectedRow(inComponent: 0)])
+            let newUser = User(name: nameField.text!, lastName: secondNameField.text!, age: agePicker.selectedRow(inComponent: 0) + 1, email: emailField.text!, gender: gender[genderPicker.selectedRow(inComponent: 0)], password: passwordField.text!)
             print (newUser.description())
+            var result: Bool
+            var message: String
+            (result,message) = UsersHandler.shared.userAlreadyExist(userToCheck: newUser)
+            if result {
+                let alert  = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            } else {
+                UsersHandler.shared.addNewUser(newUser: newUser)
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
 }
@@ -76,6 +91,7 @@ extension CreateNewUserViewController: UITextFieldDelegate{
         self.nameField.resignFirstResponder()
         self.secondNameField.resignFirstResponder()
         self.emailField.resignFirstResponder()
+        self.passwordField.resignFirstResponder()
         return true
     }
 }

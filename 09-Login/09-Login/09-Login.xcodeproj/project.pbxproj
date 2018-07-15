@@ -31,6 +31,8 @@
 		10E6E76820C7213C00E0E99D /* ActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6E76620C7213C00E0E99D /* ActionViewController.swift */; };
 		10E6E76C20C721E800E0E99D /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6E76A20C721E800E0E99D /* Action.swift */; };
 		10E6E76D20C721E800E0E99D /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10E6E76B20C721E800E0E99D /* Record.swift */; };
+		10F2E8EC20FB70B40015437C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F2E8EB20FB70B40015437C /* LoginViewController.swift */; };
+		10F2E8EE20FB805F0015437C /* UsersHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F2E8ED20FB805F0015437C /* UsersHandler.swift */; };
 		55A91CF820EAD07100640780 /* FullListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A91CF620EAD07100640780 /* FullListTableViewCell.swift */; };
 		55A91CF920EAD07100640780 /* FullListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55A91CF720EAD07100640780 /* FullListTableViewCell.xib */; };
 		55A91CFB20EAD21100640780 /* UITableView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55A91CFA20EAD21100640780 /* UITableView+Reusable.swift */; };
@@ -64,6 +66,8 @@
 		10E6E76620C7213C00E0E99D /* ActionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionViewController.swift; sourceTree = "<group>"; };
 		10E6E76A20C721E800E0E99D /* Action.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		10E6E76B20C721E800E0E99D /* Record.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Record.swift; sourceTree = "<group>"; };
+		10F2E8EB20FB70B40015437C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		10F2E8ED20FB805F0015437C /* UsersHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersHandler.swift; sourceTree = "<group>"; };
 		55A91CF620EAD07100640780 /* FullListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FullListTableViewCell.swift; path = "09-Login/Helpers/FullListTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		55A91CF720EAD07100640780 /* FullListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FullListTableViewCell.xib; path = "09-Login/Helpers/FullListTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		55A91CFA20EAD21100640780 /* UITableView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Reusable.swift"; sourceTree = "<group>"; };
@@ -127,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				105F2FD320CF139500A19E3B /* RecordsHandler.swift */,
+				10F2E8ED20FB805F0015437C /* UsersHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -143,6 +148,7 @@
 				10C496D020E8E52500230C33 /* EditInstructionViewController.swift */,
 				10C496D220E8E53400230C33 /* FavoriteInstructionViewController.swift */,
 				10C33E9620FA9C6F005C247D /* CreateNewUserViewController.swift */,
+				10F2E8EB20FB70B40015437C /* LoginViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -266,6 +272,7 @@
 				10E6E76C20C721E800E0E99D /* Action.swift in Sources */,
 				105F2FD820CF19A900A19E3B /* FullListViewController.swift in Sources */,
 				10C33E9520FA8565005C247D /* User.swift in Sources */,
+				10F2E8EC20FB70B40015437C /* LoginViewController.swift in Sources */,
 				10D92B5120F5567200C7E436 /* CollectionViewMyCell.swift in Sources */,
 				55A91D0020EAD2AD00640780 /* UITableViewCell+ReuseIdentifier.swift in Sources */,
 				55A91CF820EAD07100640780 /* FullListTableViewCell.swift in Sources */,
@@ -277,6 +284,7 @@
 				10E6E76D20C721E800E0E99D /* Record.swift in Sources */,
 				105F2FDA20CF19E000A19E3B /* FuturedViewController.swift in Sources */,
 				10C496CF20E8E51200230C33 /* AddInstructionViewController.swift in Sources */,
+				10F2E8EE20FB805F0015437C /* UsersHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
