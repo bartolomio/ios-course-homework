@@ -12,6 +12,7 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var proceedButtonParentView: UIView!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var proceedButton: UIButton!
@@ -43,13 +44,22 @@ class LoginViewController: UIViewController {
                     let buttonWidth = self.proceedButton.bounds.width
                     let buttonHeight = self.proceedButton.bounds.height
                     let newSize = CGSize(width: buttonWidth * 1.7, height: buttonHeight * 1.2)
-                    UIView.animate(withDuration: 0.5){
-                        self.proceedButton.bounds.size = newSize
-                        self.proceedButton.setTitle("Login Successful", for: .normal)
-                        self.proceedButton.backgroundColor = .green
-                        self.proceedButtonParentView.layoutIfNeeded()
+                    self.proceedButton.isHidden = true
+                    self.activityIndicator.isHidden = false
+                    self.activityIndicator.startAnimating()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+                        self.activityIndicator.stopAnimating()
+                        self.activityIndicator.isHidden = true
+                        self.proceedButton.isHidden = false
+                        UIView.animate(withDuration: 1.0){
+                            self.proceedButton.bounds.size = newSize
+                            self.proceedButton.setTitle("Login Successful", for: .normal)
+                            self.proceedButton.backgroundColor = .green
+                            self.proceedButtonParentView.layoutIfNeeded()
+                        }
+                        self.loginAllowed = true
                     }
-                    self.loginAllowed = true
+
                 } else {
                     let alert  = UIAlertController(title: "Warning", message: message, preferredStyle: .alert)
                     alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))

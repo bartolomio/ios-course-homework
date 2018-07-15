@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="5mT-nu-5fR">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="JaZ-sL-3UQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -180,7 +180,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <segue destination="tEe-gE-2e5" kind="show" identifier="skipIntro" id="ZBC-Zc-mfs"/>
+                        <segue destination="5mT-nu-5fR" kind="show" identifier="skipIntro" id="LeI-YG-Fd4"/>
                     </connections>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zuc-zI-VsU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -272,7 +272,7 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="OK"/>
                                 <connections>
-                                    <segue destination="tEe-gE-2e5" kind="show" identifier="" id="PMZ-iG-Bj5"/>
+                                    <segue destination="5mT-nu-5fR" kind="show" id="UTX-Fr-OtX"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="2T2-VX-ESG">
@@ -439,11 +439,16 @@
                                                     <action selector="onProceedButtonTapped:" destination="lHe-Pf-o4d" eventType="touchUpInside" id="36X-bH-pOY"/>
                                                 </connections>
                                             </button>
+                                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="hkZ-Ra-prK">
+                                                <rect key="frame" x="167" y="38" width="20" height="20"/>
+                                            </activityIndicatorView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="p7F-pr-xBg" firstAttribute="centerY" secondItem="tQb-9N-0EP" secondAttribute="centerY" id="6YI-3k-aMJ"/>
                                             <constraint firstItem="p7F-pr-xBg" firstAttribute="centerX" secondItem="tQb-9N-0EP" secondAttribute="centerX" id="flZ-Az-Zh1"/>
+                                            <constraint firstItem="hkZ-Ra-prK" firstAttribute="centerY" secondItem="tQb-9N-0EP" secondAttribute="centerY" id="n58-Vw-u7y"/>
+                                            <constraint firstItem="hkZ-Ra-prK" firstAttribute="centerX" secondItem="tQb-9N-0EP" secondAttribute="centerX" id="wZp-kb-GK0"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -466,6 +471,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="HXU-St-RmP"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="hkZ-Ra-prK" id="Nym-f8-pE0"/>
                         <outlet property="emailField" destination="aXa-Wv-rsO" id="7Js-Z5-cI3"/>
                         <outlet property="passwordField" destination="tJQ-cL-OuA" id="KQf-mI-gY9"/>
                         <outlet property="proceedButton" destination="p7F-pr-xBg" id="hnk-lm-FCQ"/>
@@ -966,6 +972,6 @@
         <image name="settingsTabIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xVu-Go-h3D"/>
+        <segue reference="LeI-YG-Fd4"/>
     </inferredMetricsTieBreakers>
 </document>
